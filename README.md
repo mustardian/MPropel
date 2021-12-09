@@ -1,3 +1,3 @@
 # MPropel
 
-![plot](./Pictures/unknown.jpg)
+![plot](./Pictures/unknown.png)
