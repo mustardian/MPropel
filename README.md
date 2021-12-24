@@ -11,7 +11,7 @@
 
 **A Test**
 ![plot](./Pictures/Inlab.png)
-![plot](./Pictures/AlgoCode.png)
+<!-- ![plot](./Pictures/AlgoCode.png) -->
 ![plot](./Pictures/CodeDark.png)
 
 **Review your attempt**
