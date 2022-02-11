@@ -18,5 +18,3 @@
 ![plot](./Pictures/Review1.png)
 ![plot](./Pictures/Review2.png)
 ![plot](./Pictures/Review3.png)
-
-# sub heading 
