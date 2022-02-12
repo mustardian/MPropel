@@ -1,0 +1,113 @@
+/* Light mode */
+@media(prefers-color-scheme:light){
+    :root{
+        /* Light Theme */
+        /* NOT SET. */
+        --primary-color: #81D4FA;
+        --primary-variant: #3700B3;
+        --surfaces: #232531;
+        --background: #111320;
+        --error: #CF6679;
+        --secondary: #00E9B3;
+        /* Text colors */
+        --main-heading: #D9D9D9;
+        --description: #AEAEAE;
+    }
+}
+/* Dark mode */
+@media(prefers-color-scheme:dark){
+    :root{
+        /* Dark Theme */
+        --primary-color: #81D4FA;
+        --primary-variant: #3700B3;
+        --surfaces: #232531;
+        --background: #111320;
+        --error: #CF6679;
+        --secondary: #00E9B3;
+        /* Text colors */
+        --main-heading: #D9D9D9;
+        --description: #AEAEAE;
+    }
+}
+
+body{
+    background: var(--background);
+    
+}
+
+.bg_waves{
+    position: absolute; 
+    bottom: 0px;
+    left: 0vw;
+    width: 100%;
+    z-index: -1;  
+}
+
+.logincontainer{
+    background: var(--surfaces);
+    margin-top: 10vw;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    height: 60vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 12px;
+}
+#loginheading{
+    font-size: 1.7vw;
+    font-weight: bolder;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    font-family: 'Varela Round', sans-serif;
+    padding-top: 3vh;
+    padding-left: 3vw;
+}
+.vector_art img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0px 12px 12px 0px;
+}
+#loginheading{
+    margin-left: 25px;
+    margin-top: 60px;
+    font-size: 30px;
+}
+
+.forgotPass{
+    color: #00c99a;
+}
+
+.submit_button{
+    background: var(--secondary);
+    color: var(--surfaces);
+    border: none;
+    border-radius: 12px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+}
+.submit_button:hover{
+    background-color: #00a57e;
+    color: var(--main-heading);
+}
+ .loginform{
+    justify-content: center; 
+    padding: 7vh 8vw ;
+    /* display:grid;
+    grid-template-rows: 2fr; */
+    
+} 
+
+
+.formie{
+    background-color: var(--surfaces);
+    color: white;
+    
+    outline: none;
+    border:none;
+    width: 50%;
+}
