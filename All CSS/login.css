@@ -32,7 +32,25 @@
 
 body{
     background: var(--background);
+    font-family: 'Varela Round', sans-serif;
     
+}
+
+ul{
+    display: flex;
+    list-style-type: none;
+    padding-left: 0px;
+
+}
+
+li{
+    font-size: 14px;
+}
+
+label{
+    padding-right: 20px;
+    color: var(--description);
+    font-family: 'Varela Round', sans-serif;
 }
 
 .bg_waves{
@@ -53,15 +71,47 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-radius: 12px;
+
 }
+
+.loginbody{
+    margin-left: 25px;
+    padding-top: 3vh;
+    padding-left: 3vw;
+}
+
 #loginheading{
     font-size: 1.7vw;
     font-weight: bolder;
     color: var(--secondary);
-    margin-bottom: 1rem;
-    font-family: 'Varela Round', sans-serif;
-    padding-top: 3vh;
-    padding-left: 3vw;
+    margin-bottom: 36px;
+    
+
+    
+    margin-top: 60px;
+    font-size: 2rem;
+
+}
+
+.formie{
+    background-color: var(--surfaces);
+    color: white;
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--description);
+
+    width: 80%;
+    font-size: 16px;
+    transition: 0.1s; 
+}
+.formie:focus{
+    border-bottom: 2px solid var(--secondary);
+}
+
+
+.chaatbax:checked {
+    color: var(--secondary);
 }
 .vector_art img{
     width: 100%;
@@ -69,45 +119,30 @@ body{
     object-fit: cover;
     border-radius: 0px 12px 12px 0px;
 }
-#loginheading{
-    margin-left: 25px;
-    margin-top: 60px;
-    font-size: 30px;
-}
+
 
 .forgotPass{
-    color: #00c99a;
+    color: #00c99a;  /* Unique only color, a bit darker from secondary */
+    font-family: 'Varela Round', sans-serif;
 }
 
 .submit_button{
     background: var(--secondary);
     color: var(--surfaces);
     border: none;
-    border-radius: 12px;
-    padding: 0.5rem;
+    border-radius: 6px;
+    padding: 1vh 2vw;
+    margin-left: 5vw;
+    margin-top: 5vh;
     font-size: 0.9rem;
     cursor: pointer;
     transition: 0.3s;
     outline: none;
+    font-family: 'Varela Round', sans-serif;
 }
 .submit_button:hover{
     background-color: #00a57e;
     color: var(--main-heading);
 }
- .loginform{
-    justify-content: center; 
-    padding: 7vh 8vw ;
-    /* display:grid;
-    grid-template-rows: 2fr; */
-    
-} 
+ 
 
-
-.formie{
-    background-color: var(--surfaces);
-    color: white;
-    
-    outline: none;
-    border:none;
-    width: 50%;
-}
