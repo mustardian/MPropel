@@ -1,0 +1,70 @@
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Light Theme */
+    /* NOT SET. */
+    --primary-color: #81d4fa;
+    --primary-variant: #3700b3;
+    --surfaces: #232531;
+    --background: #111320;
+    --error: #cf6679;
+    --secondary: #00e9b3;
+    /* Text colors */
+    --main-heading: #d9d9d9;
+    --description: #aeaeae;
+  }
+}
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Theme */
+    --primary-color: #81d4fa;
+    --primary-variant: #3700b3;
+    --surfaces: #232531;
+    --background: #111320;
+    --error: #cf6679;
+    --secondary: #00e9b3;
+    /* Text colors */
+    --main-heading: #d9d9d9;
+    --description: #aeaeae;
+  }
+}
+
+body {
+  background: var(--background);
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+header {
+  margin: 0;
+}
+
+nav {
+  background: var(--surfaces);
+  height: 15%;
+  width: 100%;
+  font-family: "Varela Round", sans-serif;
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  padding-left: 65%;
+}
+nav ul li {
+  text-decoration: none;
+  list-style: none;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 4vh;
+}
+
+nav ul li > a {
+  text-decoration: none;
+  color: white;
+}
+
+nav ul li > a:hover {
+  color: var(--secondary);
+}
