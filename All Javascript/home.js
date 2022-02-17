@@ -1,4 +1,5 @@
 //This is a malpraktise where I try to get used to javascript lol
+//This malpraktise is not yet complete. Do not assume that this is fully working
 
 const date = new Date();
 

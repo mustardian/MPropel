@@ -32,7 +32,7 @@
 
 body {
   background: var(--background);
-  color: white;
+  color: #D9D9D9;
   margin: 0;
   padding: 0;
 }
@@ -45,20 +45,28 @@ nav {
   height: 15%;
   width: 100%;
   font-family: "Varela Round", sans-serif;
+  display: flex;
 }
 nav ul {
   padding: 0;
   margin: 0;
+  
   display: flex;
-  padding-left: 65%;
+  padding-left: 55%;
+  
+ 
 }
 nav ul li {
   text-decoration: none;
   list-style: none;
   display: inline-block;
+  
   font-size: 1rem;
   padding: 4vh;
 }
+
+
+
 
 nav ul li > a {
   text-decoration: none;
@@ -79,4 +87,22 @@ color: #00e9b3;
 
 .white{
   color: white;
+}
+.dim{
+  color: #8B8B8B;
+}
+
+.weeks p{
+  color: white;
+}
+
+.task-time{
+  color:#81d4fa;
+}
+
+.logo{ /* I know this is malpraktise but lets go with this for now ~Xaferdian*/
+  padding-top: 0.7%;
+  padding-left:0.7%;
+  width:239px;
+  height: 67px;
 }
