@@ -68,3 +68,15 @@ nav ul li > a {
 nav ul li > a:hover {
   color: var(--secondary);
 }
+
+h2{
+color: #00e9b3;
+}
+
+.green{
+  color: #00e9b3;
+}
+
+.white{
+  color: white;
+}
