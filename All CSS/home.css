@@ -31,8 +31,8 @@
 }
 
 body {
-  background:var(--background) ;
-  color: #D9D9D9;
+  background: var(--background);
+  color: #d9d9d9;
   margin: 0;
   padding: 0;
 }
@@ -52,20 +52,15 @@ nav ul {
   margin: 0;
   display: flex;
   padding-right: 0;
-  
- 
 }
 nav ul li {
   text-decoration: none;
   list-style: none;
   display: inline-block;
-  
+
   font-size: 1rem;
   padding: 4vh;
 }
-
-
-
 
 nav ul li > a {
   text-decoration: none;
@@ -76,137 +71,132 @@ nav ul li > a:hover {
   color: var(--secondary);
 }
 
-h2{
-color: #00e9b3;
-
-}
-
-.green{
+h2 {
   color: #00e9b3;
 }
 
-.dim{
-  color: #8B8B8B;
+.green {
+  color: #00e9b3;
 }
 
-.weeks p{
+.dim {
+  color: #8b8b8b;
+}
+
+.weeks p {
   color: white;
 }
 
-.task-time{
-  color:#81d4fa;
+.task-time {
+  color: #81d4fa;
 }
 
-.logo{ /* I know this is malpraktise but lets go with this for now ~Xaferdian*/
+.logo {
+  /* I know this is malpraktise but lets go with this for now ~Xaferdian*/
   padding-top: 0.7%;
-  padding-left:0.7%;
-  width:239px;
+  padding-left: 0.7%;
+  width: 239px;
   height: 67px;
 }
-.widget-inprogress-temporary{
+.widget-inprogress-temporary {
   background-color: rgb(192, 47, 74);
-  font-family:"Varela Round", sans-serif;
-  font-weight:bold;
+  font-family: "Varela Round", sans-serif;
+  font-weight: bold;
   margin-left: 5%;
-  margin-right:5%;
-  margin-top:2%;
+  margin-right: 5%;
+  margin-top: 2%;
   border-radius: 5px;
 }
 
-.widget-inprogress-grid{
+.widget-inprogress-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-gap: 1vw;
   margin-left: 5%;
-
 }
-.white{
+.white {
   color: var(--main-heading);
   margin-top: 30px;
   font-size: 1.5vw;
   transition: 0.2s;
 }
-.white2{
+.white2 {
   color: var(--main-heading);
 
-  float:right;
+  float: right;
   font-size: 1.5vw;
   transition: 0.2s;
 }
 
-.announcement-widget{
-  background:var(--surfaces);
+.announcement-widget {
+  background: var(--surfaces);
   border-radius: 15px;
   padding: 20px;
   grid-row-start: 1;
   grid-row-end: 2;
   grid-column-start: 1;
-  grid-column-end:3;
+  grid-column-end: 3;
   font-family: "Varela Round", sans-serif;
   font-style: normal;
 }
 
 /* Xaferdian's Malpraktise region(not really---this is democracy)*/
-.main-widgets{ 
-
+.main-widgets {
   display: grid;
   grid-gap: 2vh;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   margin: 2vw 16vw 2vw 16vw;
 }
 
-.calander-header ul{ 
+.calander-header ul {
   display: flex;
   list-style-type: none;
 }
 
-.calander-header ul li{
+.calander-header ul li {
   padding: 0vh 0.1vh 0 0.1vh;
 }
 
-.exam-widget{
-
-  background:var(--surfaces);
+.exam-widget {
+  background: var(--surfaces);
   border-radius: 15px;
 
   margin-top: 0.5%;
 
-
   grid-row-start: 1;
   grid-row-end: 4;
   grid-column-start: 3;
-  grid-column-end:4;
+  grid-column-end: 4;
 }
 
 /* Xaferdian's Malpraktise never ends, yes never lol--stop it */
 
-   .resume-button{
-    background: rgb(255, 113, 139);
-    color: white;
-    border: none;
-    font-weight:bold;
-    height: 5vh;
-    width:10vw;
-    border-radius: 8px;
-    padding: 1vh 2vw;
-    margin-left: 14vw;
-    margin-top: 1.6vh;
-    font-size: 1.2vw;
-    cursor: pointer;
-    transition: 0.3s;
-    outline: none;
-    font-family: 'Varela Round', sans-serif;
-  }
-  .resume-button:hover{
-    background-color: rgb(238, 185, 185);
-    color: var(--main-heading);
-  }
-  
+.resume-button {
+  background: rgb(255, 113, 139);
+  color: white;
+  border: none;
+  font-weight: bold;
+  height: 5vh;
+  width: 10vw;
+  border-radius: 8px;
+  padding: 1vh 2vw;
+  margin-left: 14vw;
+  margin-top: 1.6vh;
+  font-size: 1.2vw;
+  cursor: pointer;
+  transition: 0.3s;
+  outline: none;
+  font-family: "Varela Round", sans-serif;
+}
+.resume-button:hover {
+  background-color: rgb(238, 185, 185);
+  color: var(--main-heading);
+}
 
-.potd-widget{
-  background:var(--surfaces);
+.potd-widget {
+  background: var(--surfaces);
   border-radius: 15px;
   padding: 20px;
   margin-top: 0.5%;
@@ -215,15 +205,14 @@ color: #00e9b3;
   grid-row-start: 2;
   grid-row-end: 4;
   grid-column-start: 1;
-  grid-column-end:3;
+  grid-column-end: 3;
 }
 
-
-.solve-button{
+.solve-button {
   background: var(--secondary);
   color: var(--surfaces);
   border: none;
-  font-weight:bold;
+  font-weight: bold;
   border-radius: 6px;
   padding: 1vh 2vw;
   margin-left: 5vw;
@@ -232,32 +221,34 @@ color: #00e9b3;
   cursor: pointer;
   transition: 0.3s;
   outline: none;
-  font-family: 'Varela Round', sans-serif;
+  font-family: "Varela Round", sans-serif;
 }
-.solve-button:hover{
+.solve-button:hover {
   background-color: #00a57e;
   color: var(--main-heading);
 }
 
-
-
-.days-display{
+.days-display {
   display: grid;
-  grid-template-columns: repeat(7,1fr);
-  grid-template-rows: repeat(5,1fr);
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   gap: 0.1vh;
   margin-left: 0.2vh;
-  
 }
 
-.weeks{
+.weeks {
   display: grid;
-  grid-template-columns: repeat(7,1fr);
+  grid-template-columns: repeat(7, 1fr);
 
   gap: 0.1vh;
 }
 
-.tasks-surface{
-  background-color: #23242E;
-  margin:0;
+.tasks-surface {
+  background-color: #23242e;
+  margin: 0;
+}
+
+.task-element {
+  display: flex;
+  justify-content: space-between;
 }
