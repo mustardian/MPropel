@@ -85,9 +85,6 @@ color: #00e9b3;
   color: #00e9b3;
 }
 
-.white{
-  color: white;
-}
 .dim{
   color: #8B8B8B;
 }
@@ -114,13 +111,28 @@ color: #00e9b3;
   margin-right:5%;
   margin-top:2%;
   border-radius: 5px;
+}
+
+.widget-inprogress-grid{
   display: grid;
-  grid-template-columns: 5fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
+  grid-gap: 1vw;
+  margin-left: 5%;
+
 }
 .white{
-  padding-right: 400px;
-  
+  color: var(--main-heading);
+  margin-top: 30px;
+  font-size: 1.5vw;
+  transition: 0.2s;
+}
+.white2{
+  color: var(--main-heading);
+
+  float:right;
+  font-size: 1.5vw;
+  transition: 0.2s;
 }
 
 .announcement-widget{
@@ -135,14 +147,14 @@ color: #00e9b3;
   font-style: normal;
 }
 
-/* Xaferdian's Malpraktise region*/
+/* Xaferdian's Malpraktise region(not really---this is democracy)*/
 .main-widgets{ 
 
   display: grid;
   grid-gap: 2vh;
   grid-template-columns: repeat(3,1fr);
   grid-template-rows: repeat(3,1fr);
-  margin: 2vw 12vw 2vw 12vw;
+  margin: 2vw 16vw 2vw 16vw;
 }
 
 .calander-header ul{ 
@@ -158,7 +170,7 @@ color: #00e9b3;
 
   background:var(--surfaces);
   border-radius: 15px;
-  padding: 20px;
+
   margin-top: 0.5%;
 
 
@@ -168,51 +180,27 @@ color: #00e9b3;
   grid-column-end:4;
 }
 
-/* Xaferdian's Malpraktise never ends, yes never lol */
-/* .resume-button{
-  
-    color: rgb(255, 255, 255);
-    padding: 0.5em 1.5em;
-    font-size: 1rem;
-    font-family:"Varela Round", sans-serif ;
-    font-weight: bold;
-    font-size:1rem;
-    border-radius: 0.5em;
-    background: rgb(255, 113, 139);
-    border: none;
-    height: 5vh;
-    width:7vw;
-    text-align:center;
-   
-    transition: all .3s;
-    
-   }
-   
-   button:hover {
-    border: 1px solid white;
-   }
-   
-   button:active {
-    box-shadow: 4px 4px 4px #c5c5c5;
-           
-   } */
+/* Xaferdian's Malpraktise never ends, yes never lol--stop it */
+
    .resume-button{
     background: rgb(255, 113, 139);
     color: white;
     border: none;
     font-weight:bold;
+    height: 5vh;
+    width:10vw;
     border-radius: 8px;
     padding: 1vh 2vw;
-    margin-left: 5vw;
-    margin-top: 5vh;
-    font-size: 0.9rem;
+    margin-left: 14vw;
+    margin-top: 1.6vh;
+    font-size: 1.2vw;
     cursor: pointer;
     transition: 0.3s;
     outline: none;
     font-family: 'Varela Round', sans-serif;
   }
   .resume-button:hover{
-    background-color: red;
+    background-color: rgb(238, 185, 185);
     color: var(--main-heading);
   }
   
@@ -258,6 +246,7 @@ color: #00e9b3;
   grid-template-columns: repeat(7,1fr);
   grid-template-rows: repeat(5,1fr);
   gap: 0.1vh;
+  margin-left: 0.2vh;
   
 }
 
@@ -267,4 +256,8 @@ color: #00e9b3;
 
   gap: 0.1vh;
 }
-/* onjoli */
+
+.tasks-surface{
+  background-color: #23242E;
+  margin:0;
+}

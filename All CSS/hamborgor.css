@@ -38,6 +38,7 @@ body{
     font-family: 'Varela Round', sans-serif;
     margin: 0;
     padding: 0;
+    font-family: 'Varela Round', sans-serif;
     
 }
 
@@ -68,7 +69,23 @@ body{
     border-radius: 100%;
     
 }
+.navigations ul{
+  color: var(--main-heading);
+  margin-top: 100%;
+  list-style: none;
+  margin-left:12%;
+}
+a{
+  text-decoration: none;
+  color:var(--main-heading);
+}
 .navigations ul li{
-  color: white;
+  text-decoration: none;
+  padding-bottom:45px;
 
+
+}
+.Logout{
+  margin-top:100px;
+  
 }
