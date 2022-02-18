@@ -78,6 +78,7 @@ nav ul li > a:hover {
 
 h2{
 color: #00e9b3;
+
 }
 
 .green{
@@ -116,8 +117,6 @@ color: #00e9b3;
   display: grid;
   grid-template-columns: 5fr 1fr;
   grid-template-rows: 1fr;
-  
-
 }
 .white{
   padding-right: 400px;
@@ -131,20 +130,19 @@ color: #00e9b3;
   grid-row-start: 1;
   grid-row-end: 2;
   grid-column-start: 1;
-  grid-column-end:2;
-  font-family: Poppins;
+  grid-column-end:3;
+  font-family: "Varela Round", sans-serif;
   font-style: normal;
-  font-weight: 600;
 }
 
 /* Xaferdian's Malpraktise region*/
 .main-widgets{ 
 
   display: grid;
-  grid-gap: 0.5rem;
-  grid-template-columns: repeat(1fr,3);
-  grid-template-rows: repeat(1fr,5);
-  margin: 2vh 20vh 2vh 20vh;
+  grid-gap: 2vh;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,1fr);
+  margin: 2vw 12vw 2vw 12vw;
 }
 
 .calander-header ul{ 
@@ -157,14 +155,21 @@ color: #00e9b3;
 }
 
 .exam-widget{
+
+  background:var(--surfaces);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 0.5%;
+
+
   grid-row-start: 1;
-  grid-row-end: 5;
+  grid-row-end: 4;
   grid-column-start: 3;
-  grid-column-end:3;
+  grid-column-end:4;
 }
 
-/* Xaferdian's Malpraktise never ends */
-.resume-button{
+/* Xaferdian's Malpraktise never ends, yes never lol */
+/* .resume-button{
   
     color: rgb(255, 255, 255);
     padding: 0.5em 1.5em;
@@ -174,6 +179,7 @@ color: #00e9b3;
     font-size:1rem;
     border-radius: 0.5em;
     background: rgb(255, 113, 139);
+    border: none;
     height: 5vh;
     width:7vw;
     text-align:center;
@@ -189,30 +195,76 @@ color: #00e9b3;
    button:active {
     box-shadow: 4px 4px 4px #c5c5c5;
            
-   }
+   } */
+   .resume-button{
+    background: rgb(255, 113, 139);
+    color: white;
+    border: none;
+    font-weight:bold;
+    border-radius: 8px;
+    padding: 1vh 2vw;
+    margin-left: 5vw;
+    margin-top: 5vh;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+    font-family: 'Varela Round', sans-serif;
+  }
+  .resume-button:hover{
+    background-color: red;
+    color: var(--main-heading);
+  }
+  
 
 .potd-widget{
   background:var(--surfaces);
   border-radius: 15px;
   padding: 20px;
   margin-top: 0.5%;
-  font-family: Poppins;
+  font-family: "Varela Round", sans-serif;
   font-style: bold;
-
-  
-
-
-  grid-row-start: 3;
-  grid-row-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 4;
   grid-column-start: 1;
-  grid-column-end:2;
+  grid-column-end:3;
 }
+
+
+.solve-button{
+  background: var(--secondary);
+  color: var(--surfaces);
+  border: none;
+  font-weight:bold;
+  border-radius: 6px;
+  padding: 1vh 2vw;
+  margin-left: 5vw;
+  margin-top: 5vh;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+  outline: none;
+  font-family: 'Varela Round', sans-serif;
+}
+.solve-button:hover{
+  background-color: #00a57e;
+  color: var(--main-heading);
+}
+
 
 
 .days-display{
   display: grid;
-  grid-template-columns: repeat(1fr,7);
-  grid-template-rows: repeat(1fr,5);
+  grid-template-columns: repeat(7,1fr);
+  grid-template-rows: repeat(5,1fr);
   gap: 0.1vh;
-  width: min(95%,1rem);
+  
 }
+
+.weeks{
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+
+  gap: 0.1vh;
+}
+/* onjoli */
