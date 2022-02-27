@@ -109,6 +109,9 @@ label{
     border-bottom: 2px solid var(--secondary);
 }
 
+.chaatbax:hover{
+    cursor: pointer;
+}
 
 .chaatbax:checked {
     color: var(--secondary);
