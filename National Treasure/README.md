@@ -1,7 +1,7 @@
 # MPropel
 
 **Login Page**
-![plot](./Pictures/login.png)
+![plot](./Pictures/Login.png)
 
 **Home Page**
 ![plot](./Pictures/home_page.png)
