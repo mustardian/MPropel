@@ -1,0 +1,19 @@
+button {
+    overflow: hidden;
+    position: relative;
+}
+
+span.ripple {
+    position: absolute; /* I need to figure out absolute and relative positioning ~Xafaradian*/
+    border-radius: 50%; /* Make the element rounded */
+    transform: scale(0); /*SMOOTHLY sets the scaling of ripple to 0, so that it emerges from nothing*/
+    animation: ripple 600ms linear; /* {Identifier/ Duration of anim / speed of animation} */
+    background-color: rgba(255, 255, 255, 0.7); 
+}
+
+@keyframes ripple {
+    to{
+        transform: scale(4);
+        opacity: 0; /* Enlarge to 4 times of defaultl size and vanish into oblivion!*/
+    }
+}
