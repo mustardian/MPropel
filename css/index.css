@@ -73,40 +73,32 @@ a {
   border: none;
   color: white;
   font-weight: bold;
-  padding: 15px 32px;
+  padding: 2vh 2vw;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   border-radius: 12px;
-  -webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
   margin-top: 2em;
-  -webkit-transition-property: background-color,-webkit-box-shadow;
-  transition-property: background-color,-webkit-box-shadow;
   transition-property: background-color,box-shadow;
-  transition-property: background-color,box-shadow,-webkit-box-shadow;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
 }
 
 .top-section .content .learn-more span {
   cursor: pointer;
-  display: inline-block;
-  position: relative;
-  -webkit-transition: 0.5s;
+  overflow: hidden;
   transition: 0.5s;
+  padding-right: -10px;
 }
 
 .top-section .content .learn-more span:after {
-  content: '»';
-  position: absolute;
+  content: '';
   opacity: 0;
   top: 0;
   right: -15px;
-  -webkit-transition: 0.5s;
   transition: 0.5s;
+
 }
 
 .top-section .content .learn-more:hover {
@@ -116,10 +108,11 @@ a {
 }
 
 .top-section .content .learn-more:hover span {
-  padding-right: 15px;
+  padding-right: 5px;
 }
 
 .top-section .content .learn-more:hover span:after {
+  content: ' »';
   opacity: 1;
   right: 0;
 }
