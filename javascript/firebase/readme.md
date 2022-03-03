@@ -1,10 +1,11 @@
 import whatever js file you need first.
-
+```javascript
 import { logger, createUser, loginUser } from "./auth.js";  // if you wanted auth.js
+```
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-#how to create a new user.
+# How to create a new user.
 
 Syntax:
 ```javascript
@@ -32,7 +33,7 @@ createUser("1ag5qfd@gmail.com", "123qwe123qwe", user_details);
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-#how to login a user.
+# How to login a user.
 
 Syntax:
 ```javascript
@@ -49,7 +50,8 @@ loginUser("1ag5qfd@gmail.com", "123qwe123qwe",rememberMe);
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-#for database manipulation.
+# For database manipulation.
+
 Syntax:
 ```javascript
 import { addToDB, getFromDB } from "./db.js";   // if you wanted db.js
@@ -66,7 +68,7 @@ addToDB("users/some_weird_kid", {
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-#get data from database
+# Get data from database
 
 Syntax:
 ```javascript
