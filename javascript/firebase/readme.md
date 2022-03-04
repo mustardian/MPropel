@@ -82,3 +82,17 @@ getFromDB(location);
 
 //after getting data from database check for uid_data in sessionStorage.
 ```
+
+ 
+### The following function is used to check if the user is logged in or not.
+If the user is logged in, it returns the user's UID.
+If the user is not logged in, it returns the error code.
+
+### Error codes:
+auth/wrong-password
+auth/user-not-found
+auth/invalid-email
+auth/email-already-in-use
+auth/weak-password
+auth/too-many-requests
+auth/network-request-failed
