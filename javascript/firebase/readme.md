@@ -89,10 +89,12 @@ If the user is logged in, it returns the user's UID.
 If the user is not logged in, it returns the error code.
 
 ### Error codes:
-auth/wrong-password
-auth/user-not-found
-auth/invalid-email
-auth/email-already-in-use
-auth/weak-password
-auth/too-many-requests
-auth/network-request-failed
+```javascript
+// auth/wrong-password
+// auth/user-not-found
+// auth/invalid-email
+// auth/email-already-in-use
+// auth/weak-password
+// auth/too-many-requests
+// auth/network-request-failed
+```
