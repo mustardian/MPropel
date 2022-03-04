@@ -26,27 +26,30 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 
-
-
+// sets data to the location specified
 async function addToDB(location, data) {
     const db = getDatabase();
-    set(ref(db, location),data);
+    set(ref(db, location), data);
 }
 
+// gets data from the location specified
 async function getFromDB(location) {
-    const dbRef = ref(getDatabase());
-    get(child(dbRef, location)).then((snapshot) => {
-    if (snapshot.exists()) {
-        sessionStorage.setItem("fetchedData",JSON.stringify(snapshot.val()));
-    } else {
-        console.log("No data available");
-        sessionStorage.setItem("fetchedData","No data available");
-    }
-    }).catch((error) => {
-    console.error(error);
-    sessionStorage.setItem("fetchedData",error);
+    return new Promise((resolve, reject) => {
+        const dbRef = ref(getDatabase());
+        get(child(dbRef, location)).then((snapshot) => {
+            if (snapshot.exists()) {
+                sessionStorage.setItem("fetchedData", JSON.stringify(snapshot.val())); // sets fetched data to session storage
+                resolve({fetchedData: snapshot.val()}); // resolves the promise with the fetched data
+            } else {
+                sessionStorage.setItem("fetchedData", "No data available"); // sets No data available to session storage
+                resolve({fetchedData: "No data available"}); // resolves the promise with No data available
+            }
+        }).catch((error) => {
+            console.error(error);
+            sessionStorage.setItem("fetchedData", error); // sets error to session storage
+            reject(error); // rejects the promise with the error
+        });
     });
-    
 }
 
 export { addToDB, getFromDB };
