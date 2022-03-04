@@ -22,7 +22,7 @@ Markup :
 // auth/network-request-failed
 ```
 
-# Using Authentication methods.
+# Authentication
 --------------------------------------------------------------------------------------------------------------------------------------
 ```javascript
 import { logger, createUser, loginUser } from "./auth.js";  // if you wanted auth.js
@@ -61,6 +61,14 @@ createUser("1ag5qfd@gmail.com", "123qwe123qwe", user_details);
 Syntax:
 ```javascript
 loginUser(email, password,rememberMe);
+
+/* --or-- */
+
+async function foo () {
+    let any_variable = await loginUser( email, password, rememberMe);
+    console.log(any_variable);
+}
+foo();
 ```
 
 Usage:
@@ -69,6 +77,16 @@ let rememberMe= false;    // this is optional. get from checkbox. if true then r
 loginUser("1ag5qfd@gmail.com", "123qwe123qwe",rememberMe);
 
 //after logging in check for uid in either localStorage or sessionStorage.
+
+/* --or-- */
+
+let rememberMe= false;
+async function doLogin () {
+    let data = await loginUser("21bai1323@vcrypt.com", "123qwe123qwe", rememberMe);
+    console.log(typeof(data) + " " + data["loggedIn"] + " " + data["uid"] + " " + data["email"]); 
+}
+doLogin();
+
 ```
 
 ### The following function is used to check if the user is logged in or not.
