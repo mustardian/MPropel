@@ -1,3 +1,5 @@
+/* ------------------------{COLOR PALETTE USED IN THE PAGE}-------------------------------*/
+
 /* Light mode */
 @media (prefers-color-scheme: light) {
   :root {
@@ -29,60 +31,104 @@
     --description: #aeaeae;
 
     /* Nav Width */
-    --nav-width: 260px;
+    --nav-width: 280px;
   }
 }
 
-body {
+
+/* ------------------------{body CSS}-------------------------------*/
+
+/*Description(By Xaferdian): The page is gridded vertically in fractions 4-1, where the first column is the translucent dim and the second one is occupied by the hamburger menu. Therefore the grid id defined at  the body element. 
+
+I am also ware that I should have used flex-box instead of grids here, but kindly excuse my malpraktise since this does not hurt either.*/
+
+body { /*when combining with home-page, this body should be made into a separate division*/
   background: black;
-  font-family: "Varela Round", sans-serif;
+  font-family: "Varela Round", sans-serif; /*Poppins should be implemented here instead */
+
   margin: 0;
   padding: 0;
+
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+
+ul{ /*Default padding for unordered list is overridden*/
+  padding: 0;
+  padding-inline-start: 0;
 }
 
 .hamburger_menu {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  width: var(--nav-width);
-  height: 100%;
+  
+  display: grid; /*This is to partition between profile and navigation sections*/
+  grid-template-rows: 1fr 3fr;
+
+  grid-column-start: 2; /*Position in parent(body) gridding*/
+  grid-column-end:3;
+
+
+  height: 100vh; /*The menu should cover 100% of the view height at any case*/
   background-color: var(--background);
 }
-.profile_pic {
-  position: absolute;
-  top: 0px;
-  right: 0vw;
-  width: var(--nav-width);
-  height: 35%;
+.profile {
+
+  grid-row-start: 1; /*Position in parent(body) gridding*/
+  grid-row-end: 2;
+  
   background-color: var(--surfaces);
   color: var(---main-heading);
 }
-.student-info {
-  list-style: none;
-  margin-top: 10%;
-}
-.text-field {
-  color: var(--secondary);
-  margin-right: 3vw;
+
+
+.navigations{
+  grid-row-start: 2;
+  grid-row-end:3;
+
   text-align: center;
-  margin-top: 8px;
 }
-.pfp_div {
-  width: var(--nav-width);
-  height: 100%;
-}
-.pfp_div img {
-  width: 40%;
-  height: 20%;
-  position: relative;
-  border-radius: 0%;
-  margin-left: 15%;
-}
-.navigations ul {
-  color: var(--main-heading);
-  margin-top: 100%;
+.student-info  {
   list-style: none;
+  
+}
+
+.student-info li{
+  color: var(--secondary);
+  
+  text-align: center;
+}
+
+
+
+.rounded-image { 
+  display: inline-block; 
+  position: relative; 
+  width: 15vh; 
+  height: 15vh; 
+  overflow: hidden; 
+  border-radius: 50%; 
+  text-align: centre;
+  
+} 
+
+.profile img {
+  
+  display: block;
+  width: auto;
+  height: 120%;
+  
+
+}
+
+
+.navigations ul {
+  FONT-VARIANT: JIS04;
+  color: var(--main-heading);
+  padding-top: 5vh;
+  list-style: none;
+}
+
+.navigations li{
+  padding-top: 4vh;
 }
 a {
   text-decoration: none;
@@ -94,27 +140,28 @@ a:hover {
 }
 .navigations ul li {
   text-decoration: none;
-  padding-bottom: 25px;
+
   text-align: center;
-  margin-right: 26.5%;
+  
 }
 .logout {
+  margin-top: 6vh;
   background: var(--error);
   color: var(--surfaces);
   border: none;
   border-radius: 3px;
-  padding: 0.7vh 1vw;
-  margin-top: 40%;
   font-size: 0.7rem;
   cursor: pointer;
   transition: 0.3s;
   outline: none;
   height: 4.8vh;
-  width: 8vw;
+  width:16vh;
   font-family: "Varela Round", sans-serif;
   font-weight: bold;
   letter-spacing: 0.2vw;
 }
+
+
 .logout:hover {
   background-color: var(--error);
   color: var(--main-heading);
@@ -122,4 +169,34 @@ a:hover {
 .logout:active {
   background-color: rgb(235, 82, 82);
   color: var(--main-heading);
+}
+
+/* ------------------------{Responsiveness to different screen widths}-------------------------------*/
+/* SUGGESTION by Xaferdian: Why support portrait mode? Can we have the 'This website supports only landscape view' for screens having condition (width < height) ? */
+
+
+@media (max-width: 1100px) {
+  body{
+    grid-template-columns: 3fr 1fr;
+  }
+}
+@media (max-width: 1000px) {
+  body{
+    grid-template-columns: 2fr 1fr;
+  }
+}
+@media (max-width: 680px) {
+  body{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 440px) {
+  body{
+    grid-template-columns: 1fr 3fr;
+  }
+}
+@media (max-width: 300px){
+  .hamburger_menu{
+    display: none;
+  }
 }
