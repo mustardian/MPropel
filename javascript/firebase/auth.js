@@ -23,6 +23,21 @@ function logger(message) {
     console.log(message);
 }//When you wanna reduce console.log to logger.. coz you are lazy like hell
 
+/*  
+The following function is used to check if the user is logged in or not.
+If the user is logged in, it returns the user's UID.
+If the user is not logged in, it returns the error code.
+
+Error codes:
+auth/wrong-password
+auth/user-not-found
+auth/invalid-email
+auth/email-already-in-use
+auth/weak-password
+auth/too-many-requests
+auth/network-request-failed
+*/
+
 // Create a new user
 async function createUser(email, password, data) { //Async function is used to do stuff in parallel to what is happening already. This is important whenever we deal with data updation/retrieval
 
@@ -57,10 +72,8 @@ async function loginUser(email, password, rememberMe) {
         logger(`User ${user.uid} logged in`);
         if (rememberMe) {
             localStorage.setItem('uid', user.uid); //localStorage is a key-value pair like object which can store data in a local browser indefinitely for later retrievel. Next time user tries to enter login page, we could check if they have the 'Remember me' preference set and log them in directly
-            
         }else{
-            sessionStorage.setItem("uid", user.uid);
-
+            sessionStorage.setItem("uid", user.uid);  // same but like localStorage but only for the current session, does do-es the delets after the session is over.
         }
     })
     .catch((error) => {
@@ -68,6 +81,11 @@ async function loginUser(email, password, rememberMe) {
         const errorCode = error.code;
         const errorMessage = error.message;
         logger(`Error: ${errorCode} ${errorMessage}`);
+        if (rememberMe) {
+            localStorage.setItem('uid', errorCode);
+        }else{
+            sessionStorage.setItem("uid", errorCode);
+        }
     });
 }
 
