@@ -7,7 +7,7 @@ body {
 
 body nav {
   margin-right: 3em;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #3b5874;
 }
 
@@ -20,6 +20,11 @@ body nav ol {
 
 body nav ol a {
   padding-left: 2em;
+  transition: 0.5s;
+}
+
+nav ol a:hover {
+  color: #81D4FA;
 }
 
 body header {
@@ -42,7 +47,7 @@ a {
   margin-left: 2em;
   color: #ffffff;
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .top-section {
@@ -116,6 +121,7 @@ a {
   opacity: 1;
   right: 0;
 }
+
 
 .top-section img {
   border-radius: 50%;

@@ -21,7 +21,12 @@ const firebaseConfig = {
     appId: "1:121853929909:web:3196f4e601324f454491fc",
     measurementId: "G-JD4GKSHJ60"
   };
+
+
 const app = initializeApp(firebaseConfig);
+
+
+
 
 async function addToDB(location, data) {
     const db = getDatabase();
