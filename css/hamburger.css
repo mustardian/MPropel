@@ -42,9 +42,15 @@
 
 I am also ware that I should have used flex-box instead of grids here, but kindly excuse my malpraktise since this does not hurt either.*/
 
-body { /*when combining with home-page, this body should be made into a separate division*/
-  background: black;
+
+body{
+  margin: 0;
+}
+
+.menu-surface { 
+  background: rgba(0,0,0,0.7);
   font-family: "Varela Round", sans-serif; /*Poppins should be implemented here instead */
+
 
   margin: 0;
   padding: 0;
@@ -58,14 +64,14 @@ ul{ /*Default padding for unordered list is overridden*/
   padding-inline-start: 0;
 }
 
-.hamburger_menu {
+.hamburger-menu {
   
   display: grid; /*This is to partition between profile and navigation sections*/
   grid-template-rows: 1fr 3fr;
 
   grid-column-start: 2; /*Position in parent(body) gridding*/
   grid-column-end:3;
-
+  opacity: 1;
 
   height: 100vh; /*The menu should cover 100% of the view height at any case*/
   background-color: var(--background);
@@ -74,6 +80,8 @@ ul{ /*Default padding for unordered list is overridden*/
 
   grid-row-start: 1; /*Position in parent(body) gridding*/
   grid-row-end: 2;
+
+  
   
   background-color: var(--surfaces);
   color: var(---main-heading);
@@ -100,23 +108,21 @@ ul{ /*Default padding for unordered list is overridden*/
 
 
 .rounded-image { 
-  display: inline-block; 
-  position: relative; 
+ 
+  
   width: 15vh; 
   height: 15vh; 
   overflow: hidden; 
   border-radius: 50%; 
-  text-align: centre;
+  margin: 2vh auto;
   
 } 
 
 .profile img {
   
-  display: block;
   width: auto;
   height: 120%;
-  
-
+ 
 }
 
 
