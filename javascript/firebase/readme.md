@@ -3,11 +3,11 @@
 Markup :
 1. [Error Handling](#error-codes)
 2. [Authentication](#using-authentication-methods)
-  1. [Creating A New User](#how-to-create-a-new-user)
-  2. [User Login](#how-to-login-a-user)
+   1. [Creating A New User](#how-to-create-a-new-user)
+   2. [User Login](#how-to-login-a-user)
 3. [Database Related Functions](#database)
-  1. [Write Data](#adding-to-database)
-  2. [Read Data](#get-data-from-database)
+   1. [Write Data](#adding-to-database)
+   2. [Read Data](#get-data-from-database)
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
