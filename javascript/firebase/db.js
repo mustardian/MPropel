@@ -37,14 +37,15 @@ async function getFromDB(location) {
     const dbRef = ref(getDatabase());
     get(child(dbRef, location)).then((snapshot) => {
     if (snapshot.exists()) {
-        sessionStorage.setItem("uid_data",JSON.stringify(snapshot.val()));
+        sessionStorage.setItem("fetchedData",JSON.stringify(snapshot.val()));
     } else {
         console.log("No data available");
+        sessionStorage.setItem("fetchedData","No data available");
     }
     }).catch((error) => {
     console.error(error);
+    sessionStorage.setItem("fetchedData",error);
     });
-    
     
 }
 
