@@ -64,31 +64,47 @@ async function createUser(email, password, data) { //Async function is used to d
 
 // Login a user
 async function loginUser(email, password, rememberMe) {
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        // Logged in
-        const user = userCredential.user;
-        logger(`User ${user.uid} logged in`);
-        if (rememberMe) {
-            localStorage.setItem('uid', user.uid); //localStorage is a key-value pair like object which can store data in a local browser indefinitely for later retrievel. Next time user tries to enter login page, we could check if they have the 'Remember me' preference set and log them in directly
-        }else{
-            sessionStorage.setItem("uid", user.uid);  // same but like localStorage but only for the current session, does do-es the delets after the session is over.
-        }
-    })
-    .catch((error) => {
-        // Errors if any
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        logger(`Error: ${errorCode} ${errorMessage}`);
-        if (rememberMe) {
-            localStorage.setItem('uid', errorCode);
-        }else{
-            sessionStorage.setItem("uid", errorCode);
-        }
+    return new Promise((resolve, reject) => {
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+
+                // Logged in
+                const user = userCredential.user;
+                logger(`User ${user.uid} logged in`);
+                if (rememberMe) {
+                    localStorage.setItem('uid', user.uid); //localStorage is a key-value pair like object which can store data in a local browser indefinitely for later retrievel. Next time user tries to enter login page, we could check if they have the 'Remember me' preference set and log them in directly
+                } else {
+                    sessionStorage.setItem("uid", user.uid);  // same but like localStorage but only for the current session, does do-es the delets after the session is over.
+                }
+                // resolves promise
+                resolve({
+                    uid: user.uid,
+                    email: user.email,
+                    loggedIn: true
+                });
+            })
+            .catch((error) => {
+
+                // Errors if any
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                logger(`Error: ${errorCode} ${errorMessage}`);
+                if (rememberMe) {
+                    localStorage.setItem('uid', errorCode);
+                } else {
+                    sessionStorage.setItem("uid", errorCode);
+                }
+
+                // rejects promise
+                reject({
+                    uid: errorCode,
+                    email: errorMessage,
+                    loggedIn: false
+                });
+            });
     });
 }
-
 
 
 
