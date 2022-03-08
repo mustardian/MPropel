@@ -5,7 +5,7 @@ Markup :
 2. [Authentication](#using-authentication-methods)
    1. [Creating A New User](#how-to-create-a-new-user)
    2. [User Login](#how-to-login-a-user)
-   3. [Reset Password](#reset-someone's-password-by-their-email)
+   3. [Reset Password](#reset-someones-password-by-their-email)
 3. [Database Related Functions](#database)
    1. [Write Data](#adding-to-database)
    2. [Read Data](#get-data-from-database)
