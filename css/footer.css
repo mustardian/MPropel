@@ -1,0 +1,8 @@
+trade-mark {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0vw 1vw 0vw 1vw;
+  margin: 0.8vh;
+}
