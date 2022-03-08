@@ -5,6 +5,7 @@ Markup :
 2. [Authentication](#using-authentication-methods)
    1. [Creating A New User](#how-to-create-a-new-user)
    2. [User Login](#how-to-login-a-user)
+   3. [Reset Password](#reset-someone's-password-by-their-email)
 3. [Database Related Functions](#database)
    1. [Write Data](#adding-to-database)
    2. [Read Data](#get-data-from-database)
@@ -92,6 +93,17 @@ doLogin();
 ### The following function is used to check if the user is logged in or not.
 If the user is logged in, it returns the user's UID.
 If the user is not logged in, it returns the error code. (in UID)
+
+## Reset someone's password by their email.
+Syntax:
+```javascript
+resetPasswordEmail(email);
+```
+Usage:
+```javascript
+resetPasswordEmail("some_pure_malpraktise_kid@gmail.com");
+```
+Do remember to check if the email address is a valid email id. (use regex or something, idk)
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
