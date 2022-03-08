@@ -33,7 +33,7 @@ async function addToDB(location, data) {
 }
 
 // gets data from the location specified
-async function getFromDB(location) {
+async function getFromDB(location) { //pass in path as in user/${uid}
     return new Promise((resolve, reject) => {
         const dbRef = ref(getDatabase());
         get(child(dbRef, location)).then((snapshot) => {

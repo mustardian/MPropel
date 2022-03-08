@@ -127,6 +127,7 @@ label{
 .forgotPass{
     color: #00c99a;  /* Unique only color, a bit darker from secondary */
     font-family: 'Varela Round', sans-serif;
+    text-decoration: none;
 }
 
 .submit_button{
@@ -147,6 +148,10 @@ label{
     background-color: #00a57e;
     color: var(--main-heading);
 }
- 
 
+.error-message{
+    font-size: 0.7rem;
+    color: var(--error);
+ 
+}
 

@@ -98,8 +98,8 @@ async function loginUser(email, password, rememberMe) {
 
                 // rejects promise
                 reject({
-                    uid: errorCode,
-                    email: errorMessage,
+                    code: errorCode,
+                    firebasemsg: errorMessage,
                     loggedIn: false
                 });
             });

@@ -21,10 +21,11 @@
     <div class="logincontainer">
         <div class="loginbody">
              <div id="loginheading">Login</div>
-             <form method="" action="" class="loginform">
-                 <input type="text" name='username' class="formie" placeholder="Username" required>
+             <div><p class = "error-message"></p></div>
+             <div class="loginform">
+                 <input type="text" name='username' class="username-input formie" placeholder="Username" required>
                  
-                 <input type="password" name='password' class="formie" placeholder="Password" required>
+                 <input type="password" name='password' class="password-input formie" placeholder="Password" required>
 
                  <ul class = 'options'>
                    <li><input type="checkbox" name='remember me' value="Remember me" class="chaatbax"></li>
@@ -32,17 +33,17 @@
                    <li><a href="" class="forgotPass" >Forgot Password?</a></li>
                  </ul>
                        
-                 <button class="submit_button" type="submit">Submit</button>
-             </form>
+                 <button class="submit_button">Submit</button>
 
-        </div>
-        <div class="vector_art">
-            <img src="../image/placeholder.svg" alt="Vector Art">
-        </div>
+                 
+                </div>
+                </div>
+          
+                <div class="vector_art"> <img src="../image/placeholder.svg" alt="Vector Art"></div>
     </div>
         
         
-    </div>
+
     
     
     <div class="bg_waves"> 
@@ -75,5 +76,7 @@
         </div>
     </div>
     <script src = "../common/common.js"></script>
+    <script type = "module" src = "../javascript/login.js"></script>
+
 </body>
 </html>
