@@ -28,8 +28,40 @@ function summonRipple(onEvent) {
 }
 
 //NOTE: If suppose we decide that few buttons shall not have ripples, this line alone should be modified
-const allButtons = document.getElementsByTagName("button"); 
+//const allButtons = document.getElementsByTagName("button"); 
 
-for (const button of allButtons) {
+/*for (const button of allButtons) {
     button.addEventListener("click", summonRipple); // (1)
+}*/ //This function has becoome useless since we are using citrus js to import stuff.
+
+
+
+function importObject(path,csspath,target,divname) {
+
+    let styleref = document.createElement("link");
+    styleref.rel = "stylesheet";
+    styleref.href = csspath;
+
+    document.querySelector("head").appendChild(styleref);
+
+    let promise = new Promise(function (resolve,reject){ //Can I consider myself the biggest malpraktise for using promise? >_<
+        fetch(path)
+        .then(res => res.text())
+        .then(text => {
+            let oldelem = document.querySelector("span#"+target);
+            let newelem = document.createElement("div");
+            if (divname){
+                newelem.classList.add(divname);
+            }
+            newelem.innerHTML = text;
+            oldelem.parentNode.replaceChild(newelem,oldelem);
+            resolve(newelem);
+        })
+    })
+
+    return promise;
+
 }
+
+
+export {importObject,summonRipple}

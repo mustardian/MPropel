@@ -11,76 +11,36 @@
         
         <link href="../css/home.css" rel="stylesheet">
         <link rel="stylesheet" href="../common/common.css">
+  
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <!-- Poppins -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-        
+
+
+        <script type = "module" src = "../javascript/home.js" defer ></script>
+        <script type = "module" src = "../common/common.js" defer></script>        
+
+
+
         <title>V-Crypt</title>
 
     </head>
     <body>
         <header>
             <!--Start of Navigation-->
-            
+            <span id = "replace_with_nav">Navigation bar</span>
             <!--End of Navigation-->
         </header>
     <main>
-        <div class="widget-inprogress-temporary">
-            <h2>In Progress: INLAB-13</h2>
-            <h2>Time Left: 1 hr 30 mins</h2>
-            <button class="resume-button">Resume</button> 
-        </div>
+        <!--The temporary inprogress widget will appear here-->
+        <span id = "replace_with_inprogress"></span>
         <div class = 'main-widgets'>
-        <div class="announcement-widget">
-            <!--Need to Implement Announcement-->
-        </div>
-        <div class="potd-widget">
-            <h2>Problem of the Day</h2>
-            <p>These malpraktise problems are supposed to enhance your programming skills. Each problem is posted at <span class = "green">8 PM</span> everyday and available till <span class = "green">8 PM </span>of the next day. Solutions will be available in the Archives next day.</p>
-            <h3>Solved By:<span class="green"> 126</span></h3>
-            <table>
-                <td class="lowest-runtime">LOWEST RUNTIME<span class="green"> by:</span> 21BAI1130 Mustardian(<span class="green">14ms</span>)</td>
-                <td class="first-solved">FIRST SOLVED<span class="green">by:</span>21BAI1129 Xaferdian(<span class="green">128s</span>)</td>
-            </table>
-            <button class="solve-button">Solve</button>
-        </div>
-
-            <div class="exam-widget">
-                <div class = "calander-surface">
-                    <div class = 'calander-header'>
-                        <ul>
-                            <li class = "current-month"><h2>January 2022</h2></li>
-                            <li><button class="previous-month">&lt</button></li>
-                            <li><button class="next-month">&gt</button></li>
-                        </ul>
-                    </div>
-                    <div class = "weeks">
-                        <p>S</p>
-                        <p>M</p>
-                        <p>T</p>
-                        <p>W</p>
-                        <p>T</p>
-                        <p>F</p>
-                        <p>S</p>
-                    </div>
-                    <div class = "days-display">
-                        
-
-                    </div>
-                </div>
-                <div class = "tasks-surface">
-                    <ul class = "task-element">
-                        <li class = "task-title">PAT-1 ma lol</li>
-                        <li class = "task-time">14:49</li>
-                    </ul>
-                    <ul class = "task-element">
-                        <li class = "task-title">PAT-2 da lmao</li>
-                        <li class = "task-time">16:50</li>
-                    </ul>
-                </div>
+            <div class="announcement-widget">
+                <!--Need to Implement Announcement-->
             </div>
-
+            <span id = "replace_with_potd"></span>
+            <span id = "replace_with_calendar"></span>
         </div>
     </main>
     <footer>
@@ -90,7 +50,6 @@
         </ul>
 
     </footer>
-    <script src = "../javascript/home.js"></script>
-    <script src = "../common/common.js"></script>
+
 </body>
 </html>

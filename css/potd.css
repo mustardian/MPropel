@@ -1,0 +1,26 @@
+
+
+
+
+
+
+
+.solve-button {
+    background: var(--secondary);
+    color: var(--surfaces);
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 1vh 2vw;
+    margin-left: 5vw;
+    margin-top: 5vh;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+    font-family: "Varela Round", sans-serif;
+  }
+.solve-button:hover {
+    background-color: #00a57e;
+    color: var(--main-heading);
+}

@@ -1,0 +1,41 @@
+nav {
+    background: var(--surfaces);
+    height: 15%;
+    width: 100%;
+    font-family: "Varela Round", sans-serif;
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  nav ul {
+    margin: 0;
+    display: flex;
+    padding-right: 0;
+  }
+  nav ul li {
+    text-decoration: none;
+    list-style: none;
+    display: inline-block;
+  
+    font-size: 1rem;
+    padding: 4vh;
+  }
+  
+  nav ul li > a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  nav ul li > a:hover {
+    color: var(--secondary);
+  }
+  
+  .logo {
+    padding-top: 0.7%;
+    padding-left: 0.7%;
+    width: 239px;
+    height: 67px;
+  }
+  
+  
+  

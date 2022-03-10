@@ -1,0 +1,44 @@
+
+/* The CSS of main-divisions*/
+
+.widget-inprogress {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(192, 47, 74);
+    font-family: "Varela Round", sans-serif;
+    font-weight: bold;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    border-radius: 5px;
+    padding: 0vw 2vw;
+}
+  
+.widget-inprogress h2{
+    color: aliceblue;
+}
+
+
+/* Button CSS*/
+.resume-button {
+    background: rgb(255, 113, 139);
+    color: white;
+    border: none;
+    font-weight: bold;
+    height: 5vh;
+    width: 10vw;
+    border-radius: 8px;
+    padding: 1vh 2vw;
+    margin-left: 14vw;
+    margin-top: 1.6vh;
+    font-size: 1.2vw;
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+    font-family: "Varela Round", sans-serif;
+}
+
+.resume-button:hover {
+    background-color: rgb(238, 185, 185);
+    color: var(--main-heading);
+}
