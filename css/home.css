@@ -91,6 +91,9 @@ h2 {
 .task-time {
   color: #81d4fa;
 }
+.default-font{
+  font-family: "Varela Round", sans-serif;
+}
 
 .logo {
   /* I know this is malpraktise but lets go with this for now ~Xaferdian*/
@@ -249,6 +252,10 @@ h2 {
   gap: 0.1vh;
   margin-left: 2vh;
   margin-right:2vh;
+
+  /* added stuff */
+  justify-items: center;
+  
 }
 
 .days-display p{
@@ -268,7 +275,7 @@ h2 {
 }
 
 .tasks-surface {
-  background-color: #23242e;
+  background-color: #202027;
   grid-row-start: 4;
   grid-row-end: 5;
  
