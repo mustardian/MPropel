@@ -41,12 +41,10 @@
 
 I am also ware that I should have used flex-box instead of grids here, but kindly excuse my malpraktise since this does not hurt either.*/
 
-body {
-  margin: 0;
-}
+
 
 .menu-surface {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0);
   font-family: "Varela Round", sans-serif; /*Poppins should be implemented here instead */
 
   margin: 0;
@@ -54,6 +52,13 @@ body {
 
   display: grid;
   grid-template-columns: 4fr 1fr;
+  transition: 0.5s;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -10;
 }
 
 ul {
@@ -71,8 +76,21 @@ ul {
   opacity: 1;
 
   height: 100vh; /*The menu should cover 100% of the view height at any case*/
+  transform: translateX(100%);
+  transition: 0.5s;
+  
   background-color: var(--background);
 }
+
+.menu-surface[data-visible = "true"]{
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.hamburger-menu[data-visible = "true"]{
+  transform: translateX(0%);
+}
+
 .profile {
   grid-row-start: 1; /*Position in parent(body) gridding*/
   grid-row-end: 2;
@@ -158,6 +176,8 @@ a:hover {
   background-color: rgb(235, 82, 82);
   color: var(--main-heading);
 }
+/* ------------------------{Responsiveness to different screen widths}-------------------------------*/
+
 
 /* ------------------------{Responsiveness to different screen widths}-------------------------------*/
 /* SUGGESTION by Xaferdian: Why support portrait mode? Can we have the 'This website supports only landscape view' for screens having condition (width < height) ? */

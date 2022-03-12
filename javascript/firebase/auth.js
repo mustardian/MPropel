@@ -4,7 +4,7 @@ import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    onAuthStateChanged
+    onAuthStateChanged //I realized this is trump card to keep track of user login session details WITHOUT using sessionstorage
 } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
 
 import { addToDB, getFromDB } from "./db.js"; //Custom functions
@@ -20,6 +20,20 @@ const firebaseConfig = {
 }; //SEKRET MALPRAKTISE which is supposed to be moved to secure environment. These are the configurations used to access our database in firebase server
 
 const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(); // {I need to know how this works} {mustardian: no you don't}
+
+onAuthStateChanged(auth,(user) => {
+    if (user){
+        console.log(user);
+
+        console.log("User has already logged in!")
+    }
+    else{
+        console.log("User has logged out!")
+    }
+})
+
 
 function logger(message) {
     console.log(message);
@@ -39,11 +53,13 @@ auth/weak-password
 auth/too-many-requests
 auth/network-request-failed
 */
+// on authentication state changed
+
 
 // Create a new user
 async function createUser(email, password, data) { //Async function is used to do stuff in parallel to what is happening already. This is important whenever we deal with data updation/retrieval
 
-    const auth = getAuth(); // {I need to know how this works} {mustardian: no you don't}
+
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => { //.then executes when the async function returns a positive signal
             // Signed in 
@@ -67,7 +83,7 @@ async function createUser(email, password, data) { //Async function is used to d
 // Login a user
 async function loginUser(email, password, rememberMe) {
     return new Promise((resolve, reject) => {
-        const auth = getAuth();
+        //const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
 
@@ -121,7 +137,7 @@ async function loginUser(email, password, rememberMe) {
 
 // Send password reset email
 async function resetPasswordByEmail(email) {
-    const auth = getAuth();
+    //const auth = getAuth();
     sendPasswordResetEmail(auth, email)
         .then(() => {
             logger(`Password reset email sent to ${email}`);
@@ -134,4 +150,4 @@ async function resetPasswordByEmail(email) {
 
 
 
-export { logger, createUser, loginUser ,resetPasswordByEmail};
+export { logger, createUser, loginUser ,resetPasswordByEmail,app,auth};

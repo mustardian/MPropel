@@ -30,13 +30,13 @@ function handleLogin(event){
 
             //Login code goes here
 
-            let userdata = getFromDB("user/"+id);
+            let userdata = getFromDB("users/"+id);
 
-            if (userdata.faculty){
-                window.location.replace("../html/homef.html");
+            if (userdata){
+                window.location.replace("../html/home.html");
             }
             else{
-                window.location.replace("../html/home.html");
+                console.log("Some malpraktise you are!")
             }
         })
         .catch(data => {

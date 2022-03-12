@@ -1,7 +1,7 @@
 import { getFromDB, addToDB } from './firebase/db.js';
 let fetchedData= [];
 
-function formCalendar(examDates){
+function formCalendar(examDates,obj){ //obj is required to handle importing the calendar 
     
     // find the calendar div
 
@@ -39,7 +39,14 @@ function formCalendar(examDates){
 
     
     // Set Month and Year
-    document.querySelector('.current-month h2').innerHTML = `${currentMonthName} ${currentYear}`;
+
+    if (obj) {
+        obj.querySelector('.current-month h2').innerHTML = `${currentMonthName} ${currentYear}`;
+    }
+    else{
+        document.querySelector('.current-month h2').innerHTML = `${currentMonthName} ${currentYear}`;
+    }
+    
 
     // loops for current stuff
         // loop for previous month
@@ -203,5 +210,5 @@ function startPopulatingTasks(currentDay,currentMonth,currentYear,fetchedData){
     populateTasks(neededData);
     
 }
-makeCalendar("BCSE1");
-export default makeCalendar;
+
+export default formCalendar;
