@@ -186,7 +186,7 @@ function populateTasks(givenData){
         ul.appendChild(li2);
         tasksSurface.appendChild(ul);
     }
-   
+
 
 }
 

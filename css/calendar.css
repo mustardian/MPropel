@@ -1,73 +1,74 @@
 .calander-header ul li {
-    margin: auto;
-    padding: 0vh 0.1vh 0 0.1vh;
-  }
-  
-  .calander-surface{
-    grid-row-start: 1;
-    grid-row-end:4;
-    /*
-    z-index: 5;
-    border-radius: 50px;*/ /* The border radius is not working for some reason */
-  }
-  .calander-header ul {
-    display: flex;
-    list-style-type: none;
-    padding: 0vw 3vw 0vw 3vw;
-    
-  }
-  
-  .green {
-    color: #00e9b3;
-  }
-  
-  .days-display {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 0.1vh;
-    margin-left: 2vh;
-    margin-right:2vh;
-  }
-  
-  .days-display p{
-    text-align: center;
-  }
+  margin: auto;
+  padding: 0vh 0.1vh 0 0.1vh;
+}
 
-  .dim {
-    color: #8b8b8b;
-  }
-  
-  .weeks p {
-    color: white;
-  }
-  
-  .task-time {
-    color: #81d4fa;
-  }
-  
-  .weeks {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    margin-left: 2vh;
-    margin-right:2vh;
-    gap: 0.1vh;
-  }
-  
-  .weeks p{
-    text-align: center;
-  }
-  
-  .tasks-surface {
-    background-color: #23242e;
-    grid-row-start: 4;
-    grid-row-end: 5;
-   
-  }
-  
-  .task-element {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    padding: 0vw 2vw 0vw 2vw;
-  }
+.calander-surface {
+  grid-row-start: 1;
+  grid-row-end: 4;
+  border-radius: 5px;
+  z-index: 5;
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.300);
+  /*
+    border-radius: 50px;*/ /* The border radius is not working for some reason */
+}
+.calander-header ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0vw 3vw 0vw 3vw;
+}
+
+.green {
+  color: #00e9b3;
+}
+
+.days-display {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0.1vh;
+  margin-left: 2vh;
+  margin-right: 2vh;
+}
+
+.days-display p {
+  text-align: center;
+}
+
+.dim {
+  color: #8b8b8b;
+}
+
+.weeks p {
+  color: white;
+}
+
+.task-time {
+  color: #81d4fa;
+}
+
+.weeks {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-left: 2vh;
+  margin-right: 2vh;
+  gap: 0.1vh;
+}
+
+.weeks p {
+  text-align: center;
+}
+
+.tasks-surface {
+  background-color: #23242e;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  border-radius: 5px;
+}
+
+.task-element {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0vw 2vw 0vw 2vw;
+}

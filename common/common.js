@@ -63,5 +63,4 @@ function importObject(path,csspath,target,divname) {
 
 }
 
-
 export {importObject,summonRipple}

@@ -30,9 +30,9 @@ function updateInprogress(examName, timeLeft){
         else{
             console.log("Inprogress object failed to load!")
         }
-    })
+    }
+    )
 }
-
 
 function refreshCalander(elem){ //void function {To do: Navigate to different months}
     let date = new Date();
@@ -53,7 +53,6 @@ function refreshCalander(elem){ //void function {To do: Navigate to different mo
     else{
         document.querySelector(".current-month h2").innerHTML = `${months[month]} ${date.getFullYear()}`;
     }
-    
 
     let days = ""
 
