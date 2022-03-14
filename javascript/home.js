@@ -86,7 +86,9 @@ function addRipples(objectList){
 
 function makeStudentHomePage(data){
     importObject("../common/calendar.html","../css/calendar.css","replace_with_calendar","exam-widget-grid").then((elem) =>{refreshCalander(elem); addRipples(elem.getElementsByTagName("button")) })
-
+    importObject("../html/announcements.html","../css/announcements.css","replace_with_announcements","announcements-widget").then((elem) =>{
+        console.log("announcements implemented");
+    })
     importObject("../html/potd.html","../css/potd.css","replace_with_potd","potd-widget-grid").then((elem) =>{addRipples(elem.getElementsByTagName("button")) })
 
     importObject("../common/nav.html","../css/nav.css","replace_with_nav").then((elem) =>{

@@ -41,7 +41,6 @@ h2 {
   color: var(--secondary);
 }
 
-
 /* The page has one wrapper division (main-widgets) within which there are three widgets with their grids defined as follows */
 
 .main-widgets {
@@ -52,7 +51,7 @@ h2 {
   margin: 2vw 16vw 2vw 16vw;
 }
 
-.announcement-widget {
+.announcements-widget {
   background: var(--surfaces);
   border-radius: 15px;
   padding: 2vw;
@@ -70,8 +69,7 @@ h2 {
 
   margin-top: 0.5%;
   display: grid;
-  grid-template-rows: repeat(4,1fr);
-
+  grid-template-rows: repeat(4, 1fr);
 
   grid-row-start: 1;
   grid-row-end: 4;
@@ -92,18 +90,18 @@ h2 {
   grid-column-end: 3;
 }
 
-footer ul{
+footer ul {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
   padding: 0vw 1vw 0vw 1vw;
-  margin:0.8vh;
+  margin: 0.8vh;
 }
 
-footer{
+footer {
   background-color: black;
   position: fixed;
   bottom: 0px;
-  right:0px;
+  right: 0px;
   left: 0px;
 }
