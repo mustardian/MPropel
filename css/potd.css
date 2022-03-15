@@ -1,19 +1,33 @@
+h2 {
+  color: var(--secondary);
+}
+.potd-widget-grid {
+  background: var(--surfaces);
+  border-radius: 15px;
+  padding: 2vw;
+  margin-top: 0.5%;
+
+  font-style: bold;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
 .solve-button {
-    background: var(--secondary);
-    color: var(--surfaces);
-    border: none;
-    font-weight: bold;
-    border-radius: 6px;
-    padding: 1vh 2vw;
-    margin-left: 5vw;
-    margin-top: 5vh;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: 0.3s;
-    outline: none;
-    font-family: "Varela Round", sans-serif;
-  }
+  background: var(--secondary);
+  color: var(--surfaces);
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 1vh 2vw;
+  margin-left: 5vw;
+  margin-top: 5vh;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+  outline: none;
+}
 .solve-button:hover {
-    background-color: #00a57e;
-    color: var(--main-heading);
+  background-color: #00a57e;
+  color: var(--main-heading);
 }

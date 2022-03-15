@@ -54,18 +54,6 @@ h2 {
   margin: 2vw 16vw 2vw 16vw;
 }
 
-.announcements-widget {
-  background: var(--surfaces);
-  border-radius: 15px;
-  padding: 2vw;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  grid-column-start: 1;
-  grid-column-end: 3;
-
-  font-style: normal;
-}
-
 .exam-widget-grid {
   background: var(--surfaces);
   border-radius: 15px;
@@ -78,19 +66,6 @@ h2 {
   grid-row-end: 4;
   grid-column-start: 3;
   grid-column-end: 4;
-}
-
-.potd-widget-grid {
-  background: var(--surfaces);
-  border-radius: 15px;
-  padding: 2vw;
-  margin-top: 0.5%;
-
-  font-style: bold;
-  grid-row-start: 2;
-  grid-row-end: 4;
-  grid-column-start: 1;
-  grid-column-end: 3;
 }
 
 footer ul {

@@ -1,0 +1,15 @@
+h2 {
+  color: var(--secondary);
+}
+
+.announcements-widget {
+  background: var(--surfaces);
+  border-radius: 15px;
+  padding: 2vw;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  font-style: normal;
+}
