@@ -36,7 +36,6 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
     for(let i = 1; i <= 42 - firstDayOfCurrentMonth - totalDaysInMonth; i++){
         daysOfNextMonth.push(i);
     }
-
     
     // Set Month and Year
 
@@ -90,6 +89,32 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
             
             currentMonthDayDiv.appendChild(currentMonthDayP);
             calendarDaysGrid.appendChild(currentMonthDayDiv);
+
+            // condition for if the day has an event
+        
+            for(let j = 0; j < examDates.length; j++){
+
+                if(Number(examDates[j][1]) === currentMonth+1 && Number(examDates[j][0]) === daysOfCurrentMonth[i] && Number(examDates[j][2]) === currentYear
+                && Number(examDates[j][0]) !== currentDay){
+
+                    let eventDayDiv = document.createElement('div');
+                    eventDayDiv.classList.add('event-day');
+                    eventDayDiv.classList.add('task-time');
+                    eventDayDiv.style.backgroundColor = '#81d4fa';
+                    eventDayDiv.style.color = '#000';
+                    eventDayDiv.style.borderRadius = '8px';
+                    eventDayDiv.style.position = 'relative';
+                    eventDayDiv.style.bottom = '1vh';
+                    eventDayDiv.style.width = `1.4vw`;
+                    eventDayDiv.style.height = '5px';
+                    eventDayDiv.style.left = '0.6vw';
+                    // handle the weird offset of <p>
+                    currentMonthDayP.style.position = 'relative';
+                    currentMonthDayP.style.bottom = '5px';
+
+                    currentMonthDayDiv.appendChild(eventDayDiv);
+                }
+            }    
         }
             // loop for next month
             for(let i = 0; i < daysOfNextMonth.length; i++){
@@ -108,30 +133,7 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
 
 
 
-        // condition for if the day has an event
         
-            for(let j = 0; j < examDates.length; j++){
-                if(Number(examDates[j][1]) === currentMonth+1 && Number(examDates[j][0]) === daysOfCurrentMonth[j] && Number(examDates[j][2]) === currentYear
-                && Number(examDates[j][0]) !== currentDay){
-
-
-                    let eventDayDiv = document.createElement('div');
-                    eventDayDiv.classList.add('event-day');
-                    eventDayDiv.classList.add('task-time');
-                    eventDayDiv.style.backgroundColor = '#81d4fa';
-                    eventDayDiv.style.color = '#000';
-                    eventDayDiv.style.borderRadius = '8px';
-                    eventDayDiv.style.position = 'relative';
-                    eventDayDiv.style.bottom = '-50px';
-                    eventDayDiv.style.width = `1.4vw`;
-                    eventDayDiv.style.height = '5px';
-                    // handle the weird offset of <p>
-                    currentMonthDayP.style.position = 'relative';
-                    currentMonthDayP.style.bottom = '5px';
-
-                    currentMonthDayDiv.appendChild(eventDayDiv);
-                }
-            }    
 
 
 
@@ -209,7 +211,7 @@ function startPopulatingTasks(currentDay,currentMonth,currentYear,fetchedData){
         currentMonth = '0'+String(parseInt(currentMonth)+1);
     }
     if(currentDay < 10){
-        currentDay = '0'+String(parseInt(currentDay)+1);
+        currentDay = '0'+String(parseInt(currentDay));
     }
     const date = currentDay+'/'+currentMonth+'/'+currentYear;
     for(let i = 0 ; i < fetchedData.length; i++){   
@@ -218,7 +220,6 @@ function startPopulatingTasks(currentDay,currentMonth,currentYear,fetchedData){
             count++;
         }
     }
-    console.log(neededData);
     populateTasks(neededData);
     
 }
