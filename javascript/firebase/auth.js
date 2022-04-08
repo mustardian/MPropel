@@ -76,9 +76,11 @@ async function createUser(email, password, data) { //Async function is used to d
         .catch((error) => { //Error handling. .catch() executes when the async function fails to return a positive signal
             const errorCode = error.code;
             const errorMessage = error.message;
-            logger(`Error: ${errorCode} ${errorMessage}`);
+            logger(`Error sign up: ${errorCode} ${errorMessage}`);
         });
 }
+
+
 
 // Login a user
 async function loginUser(email, password, rememberMe) {
