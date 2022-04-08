@@ -88,7 +88,7 @@ function makeStudentHomePage(data){
     //importObject
     importObject("../common/calendar.html","../css/calendar.css","replace_with_calendar","exam-widget-grid").then((elem) =>{makeCalendar("BCSE1",elem); addRipples(elem.getElementsByTagName("button")) })
 
-    importObject("../html/announcements.html","../css/announcements.css","replace_with_announcements","announcement-widget")
+    importObject("../html/announcements.html","../css/announcements.css","replace_with_announcements","announcements-widget")
 
     importObject("../html/potd.html","../css/potd.css","replace_with_potd","potd-widget-grid").then((elem) =>{addRipples(elem.getElementsByTagName("button")) })
 
