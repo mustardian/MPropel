@@ -37,6 +37,7 @@ function summonRipple(onEvent) {
 
 
 function importObject(path,csspath,target,divname) {
+    //html file , css file, 
 
     let styleref = document.createElement("link");
     styleref.rel = "stylesheet";

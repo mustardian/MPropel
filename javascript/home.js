@@ -1,5 +1,5 @@
 import { importObject,summonRipple } from "../common/common.js";
-
+import {makeCalendar} from "../javascript/calendar.js";
 import {
     getAuth,
     onAuthStateChanged //I realized this is trump card to keep track of user login session details WITHOUT using sessionstorage
@@ -85,7 +85,10 @@ function addRipples(objectList){
 }
 
 function makeStudentHomePage(data){
-    importObject("../common/calendar.html","../css/calendar.css","replace_with_calendar","exam-widget-grid").then((elem) =>{refreshCalander(elem); addRipples(elem.getElementsByTagName("button")) })
+    //importObject
+    importObject("../common/calendar.html","../css/calendar.css","replace_with_calendar","exam-widget-grid").then((elem) =>{makeCalendar("BCSE1",elem); addRipples(elem.getElementsByTagName("button")) })
+
+    importObject("../html/announcements.html","../css/announcements.css","replace_with_announcements","announcement-widget")
 
     importObject("../html/potd.html","../css/potd.css","replace_with_potd","potd-widget-grid").then((elem) =>{addRipples(elem.getElementsByTagName("button")) })
 
@@ -139,10 +142,10 @@ function makeStudentHomePage(data){
 
 
 //Very dangerous zone ahead. If you mess this up, then the database will consider you as malpraktise!
-onAuthStateChanged(auth,(user) => {
-    if (user){
+onAuthStateChanged(auth,(user) => {//Whenever login session state changes
+    if (user){//User has logged in
         let id = user.uid;
-        console.log(id);
+        //console.log(id);
         getFromDB("users/"+id).then(data => {
             console.log("Retrieved data successfully!");
 
@@ -150,6 +153,7 @@ onAuthStateChanged(auth,(user) => {
                 makeStudentHomePage(data["fetchedData"]);
             }
             else{
+                //makeFacultyHomePage(data["fetchedData"])
                 console.log("Xaferdian was a malpraktise so he left out the part where faculty's page was his problem lol. Bye take care I will take care of your attendance!")
             }
             
@@ -157,7 +161,7 @@ onAuthStateChanged(auth,(user) => {
             console.log("Some malpraktise has occurred");
         })
     }
-    else{
+    else{//User has logged out
         console.log("User has logged out!")
         window.location.replace("../html/login.html");
     }

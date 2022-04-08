@@ -81,11 +81,40 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
                 startPopulatingTasks(daysOfCurrentMonth[i], currentMonth, currentYear,fetchedData);
             }
 
-            // condition for if the day has an event
+            currentMonthDayP.classList.add('default-font');
+            currentMonthDayP.innerHTML = daysOfCurrentMonth[i];
+            currentMonthDayDiv.onclick = function(){
+                startPopulatingTasks(daysOfCurrentMonth[i], currentMonth, currentYear,fetchedData);
+            }
 
+            
+            currentMonthDayDiv.appendChild(currentMonthDayP);
+            calendarDaysGrid.appendChild(currentMonthDayDiv);
+        }
+            // loop for next month
+            for(let i = 0; i < daysOfNextMonth.length; i++){
+                let nextMonthDayDiv = document.createElement('div');
+                nextMonthDayDiv.classList.add('day-hover');
+                nextMonthDayDiv.style.cursor = 'pointer';
+                nextMonthDayDiv.style.alignContent = 'center';
+                let nextMonthDayP = document.createElement('p');
+                nextMonthDayP.classList.add('next-month');
+                nextMonthDayP.classList.add('dim');
+                nextMonthDayP.classList.add('default-font');
+                nextMonthDayP.innerHTML = daysOfNextMonth[i];
+                nextMonthDayDiv.appendChild(nextMonthDayP);
+                calendarDaysGrid.appendChild(nextMonthDayDiv);
+            }
+
+
+
+        // condition for if the day has an event
+        if (examDates){//EXECUTE ONLY IF EXAM DATES ARE PROVIDED 
             for(let j = 0; j < examDates.length; j++){
                 if(Number(examDates[j][1]) === currentMonth+1 && Number(examDates[j][0]) === daysOfCurrentMonth[i] && Number(examDates[j][2]) === currentYear
                 && Number(examDates[j][0]) !== currentDay){
+
+
                     let eventDayDiv = document.createElement('div');
                     eventDayDiv.classList.add('event-day');
                     eventDayDiv.classList.add('task-time');
@@ -106,31 +135,14 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
 
 
 
-            currentMonthDayP.classList.add('default-font');
-            currentMonthDayP.innerHTML = daysOfCurrentMonth[i];
-            currentMonthDayDiv.onclick = function(){
-                startPopulatingTasks(daysOfCurrentMonth[i], currentMonth, currentYear,fetchedData);
-            }
-            currentMonthDayDiv.appendChild(currentMonthDayP);
-            calendarDaysGrid.appendChild(currentMonthDayDiv);
+
         }
-        // loop for next month
-        for(let i = 0; i < daysOfNextMonth.length; i++){
-            let nextMonthDayDiv = document.createElement('div');
-            nextMonthDayDiv.classList.add('day-hover');
-            nextMonthDayDiv.style.cursor = 'pointer';
-            nextMonthDayDiv.style.alignContent = 'center';
-            let nextMonthDayP = document.createElement('p');
-            nextMonthDayP.classList.add('next-month');
-            nextMonthDayP.classList.add('dim');
-            nextMonthDayP.classList.add('default-font');
-            nextMonthDayP.innerHTML = daysOfNextMonth[i];
-            nextMonthDayDiv.appendChild(nextMonthDayP);
-            calendarDaysGrid.appendChild(nextMonthDayDiv);
-        }
+        
+    
 }
 
 function makeCalendar(the_class_name){
+    console.log("Make calendar is called!!!")
     const location = "classes/"+the_class_name+"/Tests";
     let examDates = [];
     const data = getFromDB(location);
@@ -211,4 +223,4 @@ function startPopulatingTasks(currentDay,currentMonth,currentYear,fetchedData){
     
 }
 
-export default formCalendar;
+export {makeCalendar};

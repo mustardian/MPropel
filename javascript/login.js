@@ -9,10 +9,11 @@ Error codes:
 auth/wrong-password
 auth/user-not-found
 auth/invalid-email
-auth/email-already-in-use
-auth/weak-password
 auth/too-many-requests
 auth/network-request-failed
+
+auth/email-already-in-use
+auth/weak-password
 */
 
 function handleLogin(event){
@@ -22,10 +23,11 @@ function handleLogin(event){
 
     if (!name && !pass){
         displayError("Take a deep breath, and fill in something...")
+        //User-Defined
     }
     else{
-        loginUser(name,pass)
-        .then(data =>{
+        loginUser(name,pass) //Firebase database //Promise 
+        .then(data =>{ //Positive return is succesful login //Arrow function
             let id = data.uid;
 
             //Login code goes here
@@ -35,13 +37,13 @@ function handleLogin(event){
             if (userdata){
                 window.location.replace("../html/home.html");
             }
-            else{
+            else{ //Note this
                 console.log("Some malpraktise you are!")
             }
-        })
+        }) //Negative return 
         .catch(data => {
             console.log(data);
-            let errormsg = "An error has occured. Please try again!";
+            //let errormsg = "An error has occured. Please try again!";
             let errorcode = data.code;
 
             switch (errorcode){
@@ -58,10 +60,10 @@ function handleLogin(event){
                     displayError("The server failed to respond. Please try again!")
                     break;
                 case ("auth/too-many-requests"):
-                    displayError("Too many attempts to login. Please try again later")
+                    displayError("Too many attempts to login. Please try again later.")
                     break;
                 default:
-                    displayError("An unknown error has occured")
+                    displayError("An unknown error has occured. Please try again.")
             }
             
 
