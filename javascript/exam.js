@@ -11,9 +11,6 @@ import { getFromDB } from "./firebase/db.js";
 
 
 
-window.addEventListener("beforeunload", (event)=> {
-    auth.signOut();
-})
 
 
 function makeStudentExamPage(data){
@@ -60,6 +57,8 @@ function makeStudentExamPage(data){
             }
         })
     });
+
+    removeObject(document.querySelector(".loading"),document.querySelector(".load-css"));
 
 }
 
@@ -114,6 +113,8 @@ function makeFacultyExamPage(data){
             }
         })
     });
+
+    removeObject(document.querySelector(".loading"),document.querySelector(".load-css"));
 }
 
 //Very dangerous zone ahead. If you mess this up, then the database will consider you as malpraktise!
