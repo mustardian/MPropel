@@ -91,7 +91,9 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
             currentMonthDayDiv.appendChild(currentMonthDayP);
             calendarDaysGrid.appendChild(currentMonthDayDiv);
         }
-            // loop for next month
+            
+        
+        // loop for next month
             for(let i = 0; i < daysOfNextMonth.length; i++){
                 let nextMonthDayDiv = document.createElement('div');
                 nextMonthDayDiv.classList.add('day-hover');
@@ -111,7 +113,7 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
         // condition for if the day has an event
         
             for(let j = 0; j < examDates.length; j++){
-                if(Number(examDates[j][1]) === currentMonth+1 && Number(examDates[j][0]) === daysOfCurrentMonth[i] && Number(examDates[j][2]) === currentYear
+                if(Number(examDates[j][1]) === currentMonth+1 && Number(examDates[j][0]) === daysOfCurrentMonth[j] && Number(examDates[j][2]) === currentYear
                 && Number(examDates[j][0]) !== currentDay){
 
 

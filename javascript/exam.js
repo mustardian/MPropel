@@ -1,4 +1,4 @@
-import { importObject,summonRipple, removeObject } from "../common/common.js";
+import { importObject,summonRipple } from "../common/common.js";
 import {makeCalendar} from "../javascript/calendar.js";
 import {
     getAuth,
@@ -11,46 +11,12 @@ import { getFromDB } from "./firebase/db.js";
 
 
 
-/*window.addEventListener("beforeunload", (event)=> {
+window.addEventListener("beforeunload", (event)=> {
     auth.signOut();
-})*/
+})
 
 
-function updateInprogress(examName, timeLeft){
-    //Time left will be given in pure seconds, or this is yet to be decided
-
-    importObject("../html/inprogress.html","../css/inprogress.css","replace_with_inprogress").then(function(){
-        let en = document.querySelector(".test-name");
-        let tl = document.querySelector(".time-left");
-    
-        if (en && tl){
-            en.textContent = examName;
-            tl.textContent = timeLeft;
-        }
-        else{
-            console.log("Inprogress object failed to load!")
-        }
-    }
-    )
-}
-
-function addRipples(objectList){
-    for (const button of objectList) {
-        button.addEventListener("click", summonRipple); 
-    }
-}
-
-function makeStudentHomePage(data){
-
-    
-
-    //importObject
-    importObject("../common/calendar.html","../css/calendar.css","replace_with_calendar","exam-widget-grid").then((elem) =>{makeCalendar(data.classNo[0],elem); addRipples(elem.getElementsByTagName("button")) })
-
-    importObject("../html/announcements.html","../css/announcements.css","replace_with_announcements","announcements-widget")
-
-    importObject("../html/potd.html","../css/potd.css","replace_with_potd","potd-widget-grid").then((elem) =>{addRipples(elem.getElementsByTagName("button")) })
-
+function makeStudentExamPage(data){
     importObject("../common/nav.html","../css/nav.css","replace_with_nav").then((elem) =>{
         addRipples(elem.getElementsByTagName("button")) 
 
@@ -67,8 +33,6 @@ function makeStudentHomePage(data){
             }
         })
     })
-
-    //In future make the footer html can also be considered to be imported but I am going with this for now
 
     let footer = document.querySelector(".rollno");
     footer.textContent = data.rno;
@@ -97,22 +61,10 @@ function makeStudentHomePage(data){
         })
     });
 
-    removeObject(document.querySelector(".loading"),document.querySelector(".load-css"));
-
 }
 
 
-function makeFacultyHomePage(data){
-
-    
-
-    //These imports needs to be modified later for faculty version
-    importObject("../common/calendar.html","../css/calendar.css","replace_with_calendar","exam-widget-grid").then((elem) =>{makeCalendar(data.classNo[0],elem); addRipples(elem.getElementsByTagName("button")) })
-
-    importObject("../html/announcements.html","../css/announcements.css","replace_with_announcements","announcements-widget")
-
-    importObject("../html/potd.html","../css/potd.css","replace_with_potd","potd-widget-grid").then((elem) =>{addRipples(elem.getElementsByTagName("button")) })
-
+function makeFacultyExamPage(data){
     importObject("../common/nav.html","../css/nav.css","replace_with_nav").then((elem) =>{
         addRipples(elem.getElementsByTagName("button")) 
 
@@ -129,9 +81,6 @@ function makeFacultyHomePage(data){
             }
         })
     })
-
-
-    //In future make the footer html can also be considered to be imported but I am going with this for now
 
     let footer = document.querySelector(".rollno");
     footer.textContent = data.rno;
@@ -165,10 +114,7 @@ function makeFacultyHomePage(data){
             }
         })
     });
-
-    removeObject(document.querySelector(".loading"),document.querySelector(".load-css"));
 }
-
 
 //Very dangerous zone ahead. If you mess this up, then the database will consider you as malpraktise!
 onAuthStateChanged(auth,(user) => {//Whenever login session state changes
@@ -179,10 +125,10 @@ onAuthStateChanged(auth,(user) => {//Whenever login session state changes
             console.log("Retrieved data successfully!");
             console.log(typeof(data.faculty));
             if (data.faculty === "false"){
-                makeStudentHomePage(data["fetchedData"]);
+                makeStudentExamPage(data["fetchedData"]);
             }
             else{
-                makeFacultyHomePage(data["fetchedData"]);
+                makeFacultyExamPage(data["fetchedData"]);
             }
             
         }).catch(data => {
@@ -195,6 +141,3 @@ onAuthStateChanged(auth,(user) => {//Whenever login session state changes
     }
 })
  //this should be modified in future
-
-
-//updateInprogress("MAT", "You are screwed lol!") //only use this when you need to display alert over a running exam.

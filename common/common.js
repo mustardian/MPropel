@@ -64,4 +64,8 @@ function importObject(path,csspath,target,divname) {
 
 }
 
-export {importObject,summonRipple}
+function removeObject(html,css){
+    html.remove()
+    css.remove()
+}
+export {importObject,summonRipple,removeObject}

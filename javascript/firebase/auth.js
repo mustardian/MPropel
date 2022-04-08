@@ -82,6 +82,7 @@ async function createUser(email, password, data) { //Async function is used to d
 
 
 
+
 // Login a user
 async function loginUser(email, password, rememberMe) {
     return new Promise((resolve, reject) => {

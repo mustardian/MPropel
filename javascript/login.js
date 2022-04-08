@@ -4,6 +4,25 @@ import { getFromDB } from "./firebase/db.js";
 const loginb = document.querySelector(".submit_button");
 loginb.addEventListener("click",handleLogin);
 
+import {
+    getAuth,
+    onAuthStateChanged //I realized this is trump card to keep track of user login session details WITHOUT using sessionstorage
+} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+
+import {app,auth} from "../javascript/firebase/auth.js";
+
+onAuthStateChanged(auth,(user) => {
+    if (user){
+        console.log(user);
+
+        console.log("User has already logged in!");
+
+        window.location.replace("../html/home.html");
+    }
+    else{
+        console.log("User has logged out!")
+    }
+})
 /*
 Error codes:
 auth/wrong-password
