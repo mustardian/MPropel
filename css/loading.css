@@ -1,0 +1,45 @@
+/* import color palette from somewhere bruh*/
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+body{
+    margin: 0;
+}
+.loading{
+    background-color: rgb(37, 37, 37);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100; /* 100 will be used for loading stuff */
+    width: 100%;
+    height: 100%;
+}
+.loading::after{
+    content: "";
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid black;
+    border-top-color:  var(--secondary);
+    animation: spin 2s linear infinite;
+}
+
+/* @media screen and (max-width:400px){
+    .loading::after{
+        width: 50px;
+        height: 50px;
+        top: 35%;
+        
+    }
+} */

@@ -1,0 +1,172 @@
+/* Light mode */
+@media (prefers-color-scheme: light) {
+    :root {
+      /* Light Theme */
+      /* NOT SET. */
+      --primary-color: #81d4fa;
+      --primary-variant: #3700b3;
+      --surfaces: #232531;
+      --background: #111320;
+      --error: #cf6679;
+      --secondary: #00e9b3;
+      /* Text colors */
+      --main-heading: #d9d9d9;
+      --description: #aeaeae;
+    }
+  }
+  /* Dark mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Dark Theme */
+      --primary-color: #81d4fa;
+      --primary-variant: #3700b3;
+      --surfaces: #232531;
+      --background: #111320;
+      --error: #cf6679;
+      --secondary: #00e9b3;
+      /* Text colors */
+      --main-heading: #d9d9d9;
+      --description: #aeaeae;
+    }
+  }
+
+.exam_body{
+    width: 65vw;
+    height: 15vh;
+    background-color: #292B36;
+    border-radius: 8px;
+    margin-top: 10px;
+
+    box-shadow: black 1px 1px 4px;
+}
+
+
+.exam_details{
+    display: grid;
+    grid-template-columns: 4fr 1.4fr 0.4fr;
+    grid-template-rows: 1fr;
+    
+}
+
+.rhs , .lhs{
+    padding-top: 12px;
+    
+}
+.lhs{
+    margin-left: 3vw;
+}
+.rhs{
+    padding-left: 10px;
+}
+
+.exam_name{
+    color: var(--secondary);
+    font-weight: bold;
+    font-size: 1vw;
+}
+.exam_date{
+    margin-top: -5px;
+    color: var(--primary-color);
+}
+.exam_time{
+    margin-top: -5px;
+    color: var(--secondary);
+}
+.status{
+    margin-left: 5vw;
+    margin-right: 5vw;
+
+    font-weight: bold;
+    font-size: 1vw;
+}
+.exam_duration{
+    color: var(--secondary);
+}
+.main_action_holder{
+    background-color: #3A3C4B;
+    /* background-color: #949cda; */
+    height: 15vh;
+    border-radius: 12px;
+    font-size: 1vw;
+}
+.test_action{
+    margin-left: 0.8vw;
+    margin-right: 0.5vw;
+    margin-top: 5vh;
+    padding : 1.4vw;
+
+    border-radius: 12px;
+    border: none;
+
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url("https://icons.veryicon.com/png/o/object/material-design-icons-1/clock-130.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+}
+.test_action:hover{
+    cursor: pointer;
+}
+
+/* for when width is 300px max */
+@media screen and (max-width: 500px){
+    .exam_body{
+        width: 75vw;
+        height: 12vh;
+    }
+
+    .exam_details{
+        display: grid;
+        grid-template-columns: 4fr 1.2fr 2fr;
+        grid-template-rows: 1fr;
+    }
+
+    .rhs , .lhs{
+        padding-top: 2px;
+    }
+    .lhs{
+        margin-left: 5vw;
+    }
+    .rhs{
+        padding-right: 3vw;
+    }
+
+    .exam_name{      
+        font-size: 4vw;
+    }
+    .exam_date{
+        margin-top: -8px;
+        font-size: 3vw;
+    }
+    .exam_time{
+        margin-top: -8px;
+        font-size: 3vw;
+    }
+    .status{
+        margin-left: 2vw;
+        margin-right: 4vw;
+    
+        font-weight: bold;
+        font-size: 3.5vw;
+    }
+    .exam_duration{
+        font-size: 2.1vw;
+        color: var(--secondary);
+    }
+    .main_action_holder{
+        background-color: #3A3C4B;
+        /* background-color: #949cda; */
+        height: 12vh;
+        border-radius: 6px;
+        font-size: 1vw;
+    }
+    .test_action{
+        margin-left: 5vw;
+        margin-right: 5vw;
+        margin-top: 5vh;
+        padding : 2.5vw;
+    
+    }
+    
+}
