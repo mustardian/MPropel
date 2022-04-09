@@ -1,39 +1,4 @@
-/* ------------------------{COLOR PALETTE USED IN THE PAGE}-------------------------------*/
 
-/* Light mode */
-@media (prefers-color-scheme: light) {
-  :root {
-    /* Light Theme */
-    /* NOT SET. */
-    --primary-color: #81d4fa;
-    --primary-variant: #3700b3;
-    --surfaces: #232531;
-    --background: #111320;
-    --error: #cf6679;
-    --secondary: #00e9b3;
-    /* Text colors */
-    --main-heading: #d9d9d9;
-    --description: #aeaeae;
-  }
-}
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Theme */
-    --primary-color: #81d4fa;
-    --primary-variant: #3700b3;
-    --surfaces: #232531;
-    --background: #111320;
-    --error: #cf6679;
-    --secondary: #00e9b3;
-    /* Text colors */
-    --main-heading: #d9d9d9;
-    --description: #aeaeae;
-
-    /* Nav Width */
-    --nav-width: 280px;
-  }
-}
 
 /* ------------------------{body CSS}-------------------------------*/
 
@@ -95,7 +60,7 @@ ul {
   grid-row-start: 1; /*Position in parent(body) gridding*/
   grid-row-end: 2;
 
-  background-color: var(--surfaces);
+  background-color: var(--surfaces-low);
   color: var(---main-heading);
 }
 

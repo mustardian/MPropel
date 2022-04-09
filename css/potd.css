@@ -8,8 +8,8 @@ h2 {
   margin-top: 0.5%;
 
   font-style: bold;
-  grid-row-start: 2;
-  grid-row-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 6;
   grid-column-start: 1;
   grid-column-end: 3;
 }

@@ -1,37 +1,4 @@
-/* Light mode */
-@media (prefers-color-scheme: light) {
-  :root {
-    /* Light Theme */
-    /* NOT SET. */
-    --primary-color: #81d4fa;
-    --primary-variant: #3700b3;
-    --surfaces: #232531;
-    --background: #111320;
-    --error: #cf6679;
-    --secondary: #00e9b3;
-    /* Text colors */
-    --main-heading: #d9d9d9;
-    --description: #aeaeae;
-  }
-}
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Theme */
-    --primary-color: #81d4fa;
-    --primary-variant: #3700b3;
-    --surfaces: #232531;
-    --background: #111320;
-    --error: #cf6679;
-    --secondary: #00e9b3;
-    /* Text colors */
-    --main-heading: #d9d9d9;
-    --description: #aeaeae;
-  }
-}
-* {
-  font-family: "Varela Round", sans-serif;
-}
+
 
 body {
   background: var(--background);

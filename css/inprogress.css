@@ -4,7 +4,7 @@
 .widget-inprogress {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(192, 47, 74);
+    background-color: var(--error);
     font-family: "Varela Round", sans-serif;
     font-weight: bold;
     margin-left: 5%;
@@ -21,7 +21,7 @@
 
 /* Button CSS*/
 .resume-button {
-    background: rgb(255, 113, 139);
+    background: var(--error);
     color: white;
     border: none;
     font-weight: bold;

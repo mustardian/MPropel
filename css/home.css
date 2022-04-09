@@ -1,41 +1,8 @@
-/* Light mode */
-@media (prefers-color-scheme: light) {
-  :root {
-    /* Light Theme */
-    /* NOT SET. */
-    --primary-color: #81d4fa;
-    --primary-variant: #3700b3;
-    --surfaces: #232531;
-    --background: #111320;
-    --error: #cf6679;
-    --secondary: #00e9b3;
-    /* Text colors */
-    --main-heading: #d9d9d9;
-    --description: #aeaeae;
-  }
-}
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Dark Theme */
-    --primary-color: #81d4fa;
-    --primary-variant: #3700b3;
-    --surfaces: #232531;
-    --background: #111320;
-    --error: #cf6679;
-    --secondary: #00e9b3;
-    /* Text colors */
-    --main-heading: #d9d9d9;
-    --description: #aeaeae;
-  }
-}
-* {
-  font-family: "Varela Round", sans-serif;
-}
+
 
 body {
   background: var(--background);
-  color: #d9d9d9;
+  color: var(--description);
   margin: 0;
   padding: 0;
 }
@@ -50,7 +17,7 @@ h2 {
   display: grid;
   grid-gap: 2vh;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   margin: 2vw 16vw 2vw 16vw;
 }
 
@@ -63,7 +30,7 @@ h2 {
   grid-template-rows: repeat(4, 1fr);
 
   grid-row-start: 1;
-  grid-row-end: 4;
+  grid-row-end: 6;
   grid-column-start: 3;
   grid-column-end: 4;
 }
