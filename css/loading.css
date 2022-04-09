@@ -37,7 +37,7 @@ body{
 
 /* loading animation */
 
-.loading_anim{
+.loadingGhost{
     background: linear-gradient(310deg, #292B36, rgb(66, 66, 66), #292B36);
     background-size: 700%;
     animation: loading 1.8s ease-in-out infinite alternate;
