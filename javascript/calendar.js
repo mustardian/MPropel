@@ -104,7 +104,7 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
             for(let j = 0; j < examDates.length; j++){
 
                 if(Number(examDates[j][1]) === currentMonth+1 && Number(examDates[j][0]) === daysOfCurrentMonth[i] && Number(examDates[j][2]) === currentYear
-                && Number(examDates[j][0]) !== currentDay){
+                && Number(examDates[j][0]) >= currentDay){
 
                     let eventDayDiv = document.createElement('div');
                     eventDayDiv.classList.add('event-day');
@@ -344,7 +344,6 @@ function changemonth(currentMonth, currentYear, calendarDaysGrid, examDates ,obj
                 if(Number(examDates[j][1]) === currentMonth+1 
                 && Number(examDates[j][0]) === daysOfCurrentMonth[i] 
                 && Number(examDates[j][2]) === currentYear){
-
                     let eventDayDiv = document.createElement('div');
                     eventDayDiv.classList.add('event-day');
                     eventDayDiv.classList.add('task-time');
@@ -356,10 +355,10 @@ function changemonth(currentMonth, currentYear, calendarDaysGrid, examDates ,obj
                     eventDayDiv.style.width = `1.6vw`;
                     eventDayDiv.style.height = '5px';
                     eventDayDiv.style.left = '0.3vw';
+
                     // handle the weird offset of <p>
                     currentMonthDayP.style.position = 'relative';
                     currentMonthDayP.style.bottom = '0px';
-
                     currentMonthDayDiv.appendChild(eventDayDiv);
                 }
             }    
