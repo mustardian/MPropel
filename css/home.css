@@ -18,7 +18,7 @@ h2 {
   grid-gap: 2vh;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  margin: 2vw 16vw 2vw 16vw;
+  margin: 2vw 12vw 2vw 12vw;
 }
 
 .exam-widget-grid {

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta content="dark" name="color-scheme">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/palette.css">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../common/common.css">
     
@@ -27,7 +28,7 @@
         <div class="loginbody">
              <div id="loginheading">Login</div>
              <div><p class = "error-message"></p></div>
-             <div class="loginform">
+             <form class="loginform" onsubmit = "return false">
                  <input type="text" name='username' class="username-input formie" placeholder="Username" required>
                  
                  <input type="password" name='password' class="password-input formie" placeholder="Password" required>
@@ -41,7 +42,7 @@
                  <button class="submit_button">Submit</button>
 
                  
-                </div>
+                </form>
                 </div>
           
                 <div class="vector_art"> <img src="../image/placeholder.svg" alt="Vector Art"></div>
