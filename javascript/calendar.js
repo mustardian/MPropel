@@ -11,12 +11,12 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
     const date = new Date();
     
     // get the current month
-    const currentMonth = date.getMonth(); // 0-11
+    var currentMonth = date.getMonth(); // 0-11
     const allMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const currentMonthName = allMonths[currentMonth];
     const currentDay = date.getDate(); // would return DD
     const totalDaysInMonth = new Date(date.getFullYear(),date.getMonth() + 1,0).getDate(); // would returns total days in month ex 31 in January
-    const currentYear = date.getFullYear(); // would return YYYY
+    var currentYear = date.getFullYear(); // would return YYYY
     const currentDayOfWeek = date.getDay(); // would return 0-6 where 0 is Sunday
     const lastDayOfPreviousMonth = new Date(date.getFullYear(),date.getMonth(),0).getDate(); // would return the last day of previous month ex 28 in February
     const firstDayOfCurrentMonth = new Date(date.getFullYear(),date.getMonth(),1).getDay(); // would return the first day of current month ex 0-6 where 0 is Sunday
@@ -139,17 +139,26 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
                 nextMonthDayDiv.appendChild(nextMonthDayP);
                 calendarDaysGrid.appendChild(nextMonthDayDiv);
             }
-
-
-
-        
-
-
-
-
-        
-        
-    
+    // next month button
+    const nextMonthButton = document.getElementsByClassName('next-month-button')[0];
+    nextMonthButton.onclick = function(){
+        currentMonth+=1;
+        if(currentMonth === 12){
+            currentMonth = 0;
+            currentYear += 1;
+        }
+        changemonth(currentMonth, currentYear, calendarDaysGrid, examDates, obj);
+    }
+    // previous month button
+    const previousMonthButton = document.getElementsByClassName('previous-month-button')[0];
+    previousMonthButton.onclick = function(){
+        currentMonth-=1
+        if(currentMonth === 0){
+            currentMonth = 11;
+            currentYear -= 1;
+        }
+        changemonth(currentMonth, currentYear, calendarDaysGrid, examDates, obj);
+    }
 }
 
 function makeCalendar(the_class_name){
@@ -231,6 +240,146 @@ function startPopulatingTasks(currentDay,currentMonth,currentYear,fetchedData){
     }
     populateTasks(neededData);
     
+}
+
+function changemonth(currentMonth, currentYear, calendarDaysGrid, examDates ,obj){
+    const date = new Date();
+    const actualCurrentDay = date.getDate();
+    const actualCurrentMonth = date.getMonth();
+    const actualCurrentYear = date.getFullYear();
+
+    const allMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    const firstDayOfCurrentMonth = new Date(date.getFullYear(),currentMonth,1).getDay(); // would return the first day of current month ex 0-6 where 0 is Sunday
+    const lastDayOfPreviousMonth = new Date(date.getFullYear(),currentMonth,0).getDate(); // would return the last day of previous month ex 28-31 where 28 is the last day of previous month
+    const totalDaysInMonth = new Date(date.getFullYear(),currentMonth+1,0).getDate(); // would return the total days in current month ex 28-31 where 28 is the last day of current month
+
+
+    calendarDaysGrid.innerHTML = '';
+
+    // divs to hold the days
+    const daysOfPreviousMonth = [];
+    const daysOfCurrentMonth = [];
+    const daysOfNextMonth = [];
+
+    // create the days of the previous month
+    for(let i = firstDayOfCurrentMonth - 1; i >= 0; i--){
+        daysOfPreviousMonth.push(lastDayOfPreviousMonth - i);
+    }
+    for(let i = 1; i <= totalDaysInMonth; i++){
+        daysOfCurrentMonth.push(i);
+    }
+    for(let i = 1; i <= 42 - firstDayOfCurrentMonth - totalDaysInMonth; i++){
+        daysOfNextMonth.push(i);
+    }
+
+    // Set Month and Year
+
+    const currentMonthName = allMonths[currentMonth];
+
+    if (obj) {
+        obj.querySelector('.current-month h2').innerHTML = `${currentMonthName} ${currentYear}`;
+    }
+    else{
+        document.querySelector('.current-month h2').innerHTML = `${currentMonthName} ${currentYear}`;
+    }
+    // loops for current stuff
+        // loop for previous month
+        for(let i = 0 ; i < daysOfPreviousMonth.length; i++){
+            let prevMonthDayDiv = document.createElement('div');
+            prevMonthDayDiv.classList.add('day-hover');
+            prevMonthDayDiv.style.cursor = 'pointer';
+            prevMonthDayDiv.style.alignContent = 'center';
+            let prevMonthDayP = document.createElement('p');
+            prevMonthDayP.classList.add('previous-month');
+            prevMonthDayP.classList.add('dim');
+            prevMonthDayP.classList.add('default-font');
+            prevMonthDayP.innerHTML = daysOfPreviousMonth[i];
+            prevMonthDayDiv.appendChild(prevMonthDayP);
+            calendarDaysGrid.appendChild(prevMonthDayDiv);
+        }
+        // loop for current month
+        for(let i = 0; i < daysOfCurrentMonth.length; i++){
+            let currentMonthDayDiv = document.createElement('div');
+            currentMonthDayDiv.classList.add('day-hover');
+            currentMonthDayDiv.style.alignContent = 'center';
+            currentMonthDayDiv.style.cursor = 'pointer';
+            let currentMonthDayP = document.createElement('p');
+
+            // if the day is today
+            if (daysOfCurrentMonth[i] === actualCurrentDay 
+                && currentMonth === actualCurrentMonth 
+                && currentYear === actualCurrentYear){
+                currentMonthDayDiv.classList.remove('day-hover');
+                currentMonthDayDiv.classList.add('today');
+                currentMonthDayDiv.classList.add('selected-day');
+                startPopulatingTasks(daysOfCurrentMonth[i], currentMonth, currentYear,fetchedData);
+            }
+
+            currentMonthDayP.classList.add('default-font');
+            currentMonthDayP.innerHTML = daysOfCurrentMonth[i];
+            currentMonthDayDiv.onclick = function(){
+
+                // find divs with class name selected-day
+                const selectedDayDivs = document.getElementsByClassName('selected-day');
+                // remove the class name selected-day from all of them
+                for(let i = 0; i < selectedDayDivs.length; i++){
+                    selectedDayDivs[i].classList.add('day-hover');
+                    selectedDayDivs[i].classList.remove('selected-day');
+                }
+
+                currentMonthDayDiv.classList.add('selected-day');
+                currentMonthDayDiv.classList.remove('day-hover');
+                startPopulatingTasks(daysOfCurrentMonth[i], currentMonth, currentYear,fetchedData);
+            }
+
+            
+            currentMonthDayDiv.appendChild(currentMonthDayP);
+            calendarDaysGrid.appendChild(currentMonthDayDiv);
+
+            // condition for if the day has an event
+        
+            for(let j = 0; j < examDates.length; j++){
+
+                if(Number(examDates[j][1]) === currentMonth+1 
+                && Number(examDates[j][0]) === daysOfCurrentMonth[i] 
+                && Number(examDates[j][2]) === currentYear){
+
+                    let eventDayDiv = document.createElement('div');
+                    eventDayDiv.classList.add('event-day');
+                    eventDayDiv.classList.add('task-time');
+                    eventDayDiv.style.backgroundColor = '#81d4fa';
+                    eventDayDiv.style.color = '#000';
+                    eventDayDiv.style.borderRadius = '8px';
+                    eventDayDiv.style.position = 'relative';
+                    eventDayDiv.style.bottom = '0.8vh';
+                    eventDayDiv.style.width = `1.6vw`;
+                    eventDayDiv.style.height = '5px';
+                    eventDayDiv.style.left = '0.3vw';
+                    // handle the weird offset of <p>
+                    currentMonthDayP.style.position = 'relative';
+                    currentMonthDayP.style.bottom = '0px';
+
+                    currentMonthDayDiv.appendChild(eventDayDiv);
+                }
+            }    
+        }
+            // loop for next month
+            for(let i = 0; i < daysOfNextMonth.length; i++){
+                let nextMonthDayDiv = document.createElement('div');
+                nextMonthDayDiv.classList.add('day-hover');
+                nextMonthDayDiv.style.cursor = 'pointer';
+                nextMonthDayDiv.style.alignContent = 'center';
+                let nextMonthDayP = document.createElement('p');
+                nextMonthDayP.classList.add('next-month');
+                nextMonthDayP.classList.add('dim');
+                nextMonthDayP.classList.add('default-font');
+                nextMonthDayP.innerHTML = daysOfNextMonth[i];
+                nextMonthDayDiv.appendChild(nextMonthDayP);
+                calendarDaysGrid.appendChild(nextMonthDayDiv);
+            }
+
+
 }
 
 export {makeCalendar};

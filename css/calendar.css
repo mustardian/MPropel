@@ -59,7 +59,6 @@
 }
 
 .tasks-surface {
-  margin-top: 2vh;
   background-color: #23242e;
   grid-row-start: 4;
   grid-row-end: 5;
@@ -75,8 +74,8 @@
 }
 
 .previous-month-button , .next-month-button{
-  width: 2vw;
-  height: 4.5vh;
+  width: 2.2vw;
+  height: 4.8vh;
   background-color: #272831;
   color: var(--heading);
 

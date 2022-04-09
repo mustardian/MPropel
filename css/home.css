@@ -23,7 +23,7 @@ h2 {
 
 .exam-widget-grid {
   background: var(--surfaces);
-  border-radius: 15px;
+  border-radius: 5px;
 
   margin-top: 0.5%;
   display: grid;
