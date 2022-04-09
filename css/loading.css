@@ -35,11 +35,21 @@ body{
     animation: spin 2s linear infinite;
 }
 
-/* @media screen and (max-width:400px){
-    .loading::after{
-        width: 50px;
-        height: 50px;
-        top: 35%;
-        
+/* loading animation */
+
+.loading_anim{
+    background: linear-gradient(310deg, #292B36, rgb(66, 66, 66), #292B36);
+    background-size: 700%;
+    animation: loading 1.8s ease-in-out infinite alternate;
+}
+
+
+
+@keyframes loading {
+    from{
+        background-position: 0%;
     }
-} */
+    to{
+        background-position: 100%;
+    }
+}
