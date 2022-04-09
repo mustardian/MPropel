@@ -111,4 +111,10 @@ function setupNavAndHamburger(data,exam_portal = false){
         })
     });   
 }
-export {importObject,summonRipple,removeObject,setupNavAndHamburger}
+
+function addRipples(objectList){
+    for (const button of objectList) {
+        button.addEventListener("click", summonRipple); 
+    }
+}
+export {importObject,summonRipple,removeObject,setupNavAndHamburger,addRipples}
