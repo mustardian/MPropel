@@ -8,9 +8,7 @@
   grid-row-end: 4;
   border-radius: 5px;
   z-index: 5;
-  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.300);
-  /*
-    border-radius: 50px;*/ /* The border radius is not working for some reason */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.300);
 }
 .calander-header ul {
   display: flex;
@@ -29,6 +27,7 @@
   gap: 0.1vh;
   margin-left: 2vh;
   margin-right: 2vh;
+  margin-bottom: 2vh;
 }
 
 .days-display p {
@@ -60,6 +59,7 @@
 }
 
 .tasks-surface {
+  margin-top: 2vh;
   background-color: #23242e;
   grid-row-start: 4;
   grid-row-end: 5;
@@ -71,4 +71,72 @@
   justify-content: space-between;
   list-style-type: none;
   padding: 0vw 2vw 0vw 2vw;
+  cursor: pointer;
+}
+
+.previous-month-button , .next-month-button{
+  width: 2vw;
+  height: 4.5vh;
+  background-color: #272831;
+  color: var(--heading);
+
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 3px 4px black;
+
+  font-size: x-large;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: all 0.1s ease-in-out;
+}
+.previous-month-button:hover , .next-month-button:hover{
+  background-color: #242429;
+  color: var(--description);
+
+  box-shadow: 1px 4px 6px black;
+}
+.previous-month-button:active , .next-month-button:active{
+  font-size: large;
+  background-color: #17171a;
+  color: var(--description);
+
+  box-shadow: 1px 4px 6px black;
+}
+
+.day-hover{
+  width: 74%;
+  border: transparent 2px solid;
+  transition: all 0.1s ease-in-out;
+}
+.day-hover:hover {
+  background-color: #272831;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 1px 3px 4px black;
+}
+.day-hover:active{
+
+  padding-top: 0.6vh;
+  font-size: small;
+  background-color: #242429;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 1px 4px 6px black;
+}
+.selected-day{
+  background-color: #00e9b3;
+  color: #000;
+  border-radius: 8px;
+  width: 80%;
+}
+
+.today{
+  width: 74%;
+  border: #00e9b3 solid 2px;
+  border-radius: 8px;
+  
+}
+.today:hover{
+  border: transparent 2px solid;
 }

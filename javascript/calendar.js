@@ -72,17 +72,26 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
             
             // if the day is today
             if (daysOfCurrentMonth[i] === currentDay){
+                currentMonthDayDiv.classList.remove('day-hover');
                 currentMonthDayDiv.classList.add('today');
-                currentMonthDayDiv.style.backgroundColor = '#00e9b3';
-                currentMonthDayDiv.style.color = '#000';
-                currentMonthDayDiv.style.borderRadius = '8px';
-                currentMonthDayDiv.style.width = '80%';
+                currentMonthDayDiv.classList.add('selected-day');
                 startPopulatingTasks(daysOfCurrentMonth[i], currentMonth, currentYear,fetchedData);
             }
 
             currentMonthDayP.classList.add('default-font');
             currentMonthDayP.innerHTML = daysOfCurrentMonth[i];
             currentMonthDayDiv.onclick = function(){
+
+                // find divs with class name selected-day
+                const selectedDayDivs = document.getElementsByClassName('selected-day');
+                // remove the class name selected-day from all of them
+                for(let i = 0; i < selectedDayDivs.length; i++){
+                    selectedDayDivs[i].classList.add('day-hover');
+                    selectedDayDivs[i].classList.remove('selected-day');
+                }
+
+                currentMonthDayDiv.classList.add('selected-day');
+                currentMonthDayDiv.classList.remove('day-hover');
                 startPopulatingTasks(daysOfCurrentMonth[i], currentMonth, currentYear,fetchedData);
             }
 
@@ -104,13 +113,13 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
                     eventDayDiv.style.color = '#000';
                     eventDayDiv.style.borderRadius = '8px';
                     eventDayDiv.style.position = 'relative';
-                    eventDayDiv.style.bottom = '1vh';
-                    eventDayDiv.style.width = `1.4vw`;
+                    eventDayDiv.style.bottom = '0.8vh';
+                    eventDayDiv.style.width = `1.6vw`;
                     eventDayDiv.style.height = '5px';
-                    eventDayDiv.style.left = '0.6vw';
+                    eventDayDiv.style.left = '0.3vw';
                     // handle the weird offset of <p>
                     currentMonthDayP.style.position = 'relative';
-                    currentMonthDayP.style.bottom = '5px';
+                    currentMonthDayP.style.bottom = '0px';
 
                     currentMonthDayDiv.appendChild(eventDayDiv);
                 }
