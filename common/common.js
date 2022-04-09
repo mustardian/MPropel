@@ -68,4 +68,47 @@ function removeObject(html,css){
     html.remove()
     css.remove()
 }
-export {importObject,summonRipple,removeObject}
+
+function setupNavAndHamburger(data,exam_portal = false){
+    importObject("../common/nav.html","../css/nav.css","replace_with_nav").then((elem) =>{
+        addRipples(elem.getElementsByTagName("button")) 
+
+        let menub = elem.querySelector(".topnav-hamburger-menu");
+        menub.addEventListener("click", (event) => {
+            console.log("Hamburher menu commenced!")
+            let surf = document.querySelector(".menu-surface");
+            let menu = document.querySelector(".hamburger-menu");
+            let menu_vis = menu.getAttribute("data-visible");
+            let surf_vis = surf.getAttribute("data-visible");
+            if (menu_vis === "false" && surf_vis === "false"){
+                menu.setAttribute("data-visible","true");
+                surf.setAttribute("data-visible","true");
+            }
+        })
+    })
+    
+    importObject("../common/hamburger.html","../css/hamburger.css","hamburger").then((elem) => {
+        addRipples(elem.getElementsByTagName("button"));
+        let name = elem.querySelector(".student-name");
+        let roll = elem.querySelector(".student-roll");
+        name.textContent = data.name;
+        roll.textContent = data.rno;
+
+        let logoutb = elem.querySelector(".logout")
+        logoutb.addEventListener("click",(event) => {
+            auth.signOut();
+        })
+
+        let surf = elem.querySelector(".menu-surface");
+        surf.addEventListener("click",(event) => {
+            let menu = elem.querySelector(".hamburger-menu");
+            let menu_vis = menu.getAttribute("data-visible");
+            let surf_vis = surf.getAttribute("data-visible");
+            if (menu_vis === "true" && surf_vis === "true"){
+                menu.setAttribute("data-visible","false");
+                surf.setAttribute("data-visible","false");
+            }
+        })
+    });   
+}
+export {importObject,summonRipple,removeObject,setupNavAndHamburger}
