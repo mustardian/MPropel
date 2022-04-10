@@ -115,27 +115,39 @@
   box-shadow: 1px 3px 4px black;
 }
 .day-hover:active{
-
-  padding-top: 0.6vh;
+  padding-top: 1vh;
   font-size: small;
   background-color: #242429;
   color: white;
   border-radius: 5px;
   box-shadow: 1px 4px 6px black;
+  transition: all 0.1s ease-in-out;
 }
 .selected-day{
   background-color: #00e9b3;
   color: #000;
-  border-radius: 8px;
+  border-radius: 5px;
   width: 80%;
 }
 
 .today{
   width: 74%;
   border: #00e9b3 solid 2px;
-  border-radius: 8px;
+  border-radius: 5px;
   
 }
 .today:hover{
   border: transparent 2px solid;
+  border-radius: 8px;
+}
+
+.event-day-underline::after{
+  content: "";
+  display: block;
+  background-color: #81d4fa;
+  width: 1.6vw;
+  height: 5px;
+  border-radius: 8px;
+  margin-top: -1vh;
+  margin-left: 0.4vw;
 }

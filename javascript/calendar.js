@@ -60,11 +60,20 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
             prevMonthDayP.classList.add('default-font');
             prevMonthDayP.innerHTML = daysOfPreviousMonth[i];
             prevMonthDayDiv.appendChild(prevMonthDayP);
+            prevMonthDayDiv.onclick = function(){
+                currentMonth-=1
+                if(currentMonth === 0){
+                    currentMonth = 11;
+                    currentYear -= 1;
+                }
+                changemonth(currentMonth, currentYear, calendarDaysGrid, examDates, obj);
+            }
             calendarDaysGrid.appendChild(prevMonthDayDiv);
         }
         // loop for current month
         for(let i = 0; i < daysOfCurrentMonth.length; i++){
             let currentMonthDayDiv = document.createElement('div');
+            currentMonthDayDiv.classList.add('current-month-days-div');
             currentMonthDayDiv.classList.add('day-hover');
             currentMonthDayDiv.style.alignContent = 'center';
             currentMonthDayDiv.style.cursor = 'pointer';
@@ -80,6 +89,9 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
 
             currentMonthDayP.classList.add('default-font');
             currentMonthDayP.innerHTML = daysOfCurrentMonth[i];
+
+            // clicking on a day
+
             currentMonthDayDiv.onclick = function(){
 
                 // find divs with class name selected-day
@@ -92,6 +104,17 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
 
                 currentMonthDayDiv.classList.add('selected-day');
                 currentMonthDayDiv.classList.remove('day-hover');
+                try{
+                    let event_day_elements = document.getElementsByClassName("event-day");
+                        for(let k = 0; k < event_day_elements.length; k++){
+                            event_day_elements[k].classList.add("event-day-underline");
+                        }
+                    if(document.getElementsByClassName("selected-day")[0].childNodes[1].classList.contains('event-day-underline')){
+                        document.getElementsByClassName("selected-day")[0].childNodes[1].classList.remove("event-day-underline");
+                    }
+                }catch(err){
+                }
+
                 startPopulatingTasks(daysOfCurrentMonth[i], currentMonth, currentYear,fetchedData);
             }
 
@@ -104,19 +127,11 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
             for(let j = 0; j < examDates.length; j++){
 
                 if(Number(examDates[j][1]) === currentMonth+1 && Number(examDates[j][0]) === daysOfCurrentMonth[i] && Number(examDates[j][2]) === currentYear
-                && Number(examDates[j][0]) >= currentDay){
+                && Number(examDates[j][0]) > currentDay){
 
                     let eventDayDiv = document.createElement('div');
                     eventDayDiv.classList.add('event-day');
-                    eventDayDiv.classList.add('task-time');
-                    eventDayDiv.style.backgroundColor = '#81d4fa';
-                    eventDayDiv.style.color = '#000';
-                    eventDayDiv.style.borderRadius = '8px';
-                    eventDayDiv.style.position = 'relative';
-                    eventDayDiv.style.bottom = '0.8vh';
-                    eventDayDiv.style.width = `1.6vw`;
-                    eventDayDiv.style.height = '5px';
-                    eventDayDiv.style.left = '0.3vw';
+                    eventDayDiv.classList.add('event-day-underline');
                     // handle the weird offset of <p>
                     currentMonthDayP.style.position = 'relative';
                     currentMonthDayP.style.bottom = '0px';
@@ -137,6 +152,14 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
                 nextMonthDayP.classList.add('default-font');
                 nextMonthDayP.innerHTML = daysOfNextMonth[i];
                 nextMonthDayDiv.appendChild(nextMonthDayP);
+                nextMonthDayDiv.onclick = function(){
+                    currentMonth+=1;
+                    if(currentMonth === 12){
+                        currentMonth = 0;
+                        currentYear += 1;
+                    }
+                    changemonth(currentMonth, currentYear, calendarDaysGrid, examDates, obj);
+                }
                 calendarDaysGrid.appendChild(nextMonthDayDiv);
             }
     // next month button
@@ -153,7 +176,7 @@ function formCalendar(examDates,obj){ //obj is required to handle importing the 
     const previousMonthButton = document.getElementsByClassName('previous-month-button')[0];
     previousMonthButton.onclick = function(){
         currentMonth-=1
-        if(currentMonth === 0){
+        if(currentMonth === -1){
             currentMonth = 11;
             currentYear -= 1;
         }
@@ -225,16 +248,22 @@ function populateTasks(givenData){
 function startPopulatingTasks(currentDay,currentMonth,currentYear,fetchedData){
     let neededData = {};
     let count = 0;
-    if(currentMonth < 10){
+    if(currentMonth+1 < 10){
         currentMonth = '0'+String(parseInt(currentMonth)+1);
+    }else{
+        currentMonth = String(parseInt(currentMonth)+1);
     }
+
+
     if(currentDay < 10){
         currentDay = '0'+String(parseInt(currentDay));
     }
     const date = currentDay+'/'+currentMonth+'/'+currentYear;
+    
     for(let i = 0 ; i < fetchedData.length; i++){   
         if(fetchedData[i]['date'] === date){
             neededData[count] = fetchedData[i];
+
             count++;
         }
     }
@@ -296,6 +325,14 @@ function changemonth(currentMonth, currentYear, calendarDaysGrid, examDates ,obj
             prevMonthDayP.classList.add('default-font');
             prevMonthDayP.innerHTML = daysOfPreviousMonth[i];
             prevMonthDayDiv.appendChild(prevMonthDayP);
+            prevMonthDayDiv.onclick = function(){
+                currentMonth-=1
+                if(currentMonth === 0){
+                    currentMonth = 11;
+                    currentYear -= 1;
+                }
+                changemonth(currentMonth, currentYear, calendarDaysGrid, examDates, obj);
+            }
             calendarDaysGrid.appendChild(prevMonthDayDiv);
         }
         // loop for current month
@@ -318,6 +355,8 @@ function changemonth(currentMonth, currentYear, calendarDaysGrid, examDates ,obj
 
             currentMonthDayP.classList.add('default-font');
             currentMonthDayP.innerHTML = daysOfCurrentMonth[i];
+            // clicking on a day
+
             currentMonthDayDiv.onclick = function(){
 
                 // find divs with class name selected-day
@@ -330,6 +369,16 @@ function changemonth(currentMonth, currentYear, calendarDaysGrid, examDates ,obj
 
                 currentMonthDayDiv.classList.add('selected-day');
                 currentMonthDayDiv.classList.remove('day-hover');
+                try{
+                    let event_day_elements = document.getElementsByClassName("event-day");
+                        for(let k = 0; k < event_day_elements.length; k++){
+                            event_day_elements[k].classList.add("event-day-underline");
+                        }
+                    if(document.getElementsByClassName("selected-day")[0].childNodes[1].classList.contains('event-day-underline')){
+                        document.getElementsByClassName("selected-day")[0].childNodes[1].classList.remove("event-day-underline");
+                    }
+                }catch(err){
+                }
                 startPopulatingTasks(daysOfCurrentMonth[i], currentMonth, currentYear,fetchedData);
             }
 
@@ -340,26 +389,26 @@ function changemonth(currentMonth, currentYear, calendarDaysGrid, examDates ,obj
             // condition for if the day has an event
         
             for(let j = 0; j < examDates.length; j++){
-
                 if(Number(examDates[j][1]) === currentMonth+1 
                 && Number(examDates[j][0]) === daysOfCurrentMonth[i] 
                 && Number(examDates[j][2]) === currentYear){
+
                     let eventDayDiv = document.createElement('div');
                     eventDayDiv.classList.add('event-day');
-                    eventDayDiv.classList.add('task-time');
-                    eventDayDiv.style.backgroundColor = '#81d4fa';
-                    eventDayDiv.style.color = '#000';
-                    eventDayDiv.style.borderRadius = '8px';
-                    eventDayDiv.style.position = 'relative';
-                    eventDayDiv.style.bottom = '0.8vh';
-                    eventDayDiv.style.width = `1.6vw`;
-                    eventDayDiv.style.height = '5px';
-                    eventDayDiv.style.left = '0.3vw';
+                    eventDayDiv.classList.add('event-day-underline');
 
                     // handle the weird offset of <p>
                     currentMonthDayP.style.position = 'relative';
                     currentMonthDayP.style.bottom = '0px';
-                    currentMonthDayDiv.appendChild(eventDayDiv);
+
+                    if (Number(examDates[j][1]) === actualCurrentMonth+1
+                    && (Number(examDates[j][0]) <= actualCurrentDay)){
+
+                        // dont append the event
+
+                    }else{
+                        currentMonthDayDiv.appendChild(eventDayDiv);
+                    }
                 }
             }    
         }
@@ -375,6 +424,14 @@ function changemonth(currentMonth, currentYear, calendarDaysGrid, examDates ,obj
                 nextMonthDayP.classList.add('default-font');
                 nextMonthDayP.innerHTML = daysOfNextMonth[i];
                 nextMonthDayDiv.appendChild(nextMonthDayP);
+                nextMonthDayDiv.onclick = function(){
+                    currentMonth+=1;
+                    if(currentMonth === 12){
+                        currentMonth = 0;
+                        currentYear += 1;
+                    }
+                    changemonth(currentMonth, currentYear, calendarDaysGrid, examDates, obj);
+                }
                 calendarDaysGrid.appendChild(nextMonthDayDiv);
             }
 
