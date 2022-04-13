@@ -3,7 +3,7 @@ h2 {
 }
 .potd-widget-grid {
   background: var(--surfaces);
-  border-radius: 15px;
+  border-radius: 8px;
   padding: 2vw;
   margin-top: 0.5%;
 
@@ -16,12 +16,14 @@ h2 {
 .solve-button {
   background: var(--secondary);
   color: var(--surfaces);
+  float: right;
   border: none;
   font-weight: bold;
   border-radius: 6px;
-  padding: 1vh 2vw;
+  padding: 1vh 3vw;
   margin-left: 5vw;
-  margin-top: 5vh;
+  margin-top: -3vh;
+  margin-bottom: 5vh;
   font-size: 0.9rem;
   cursor: pointer;
   transition: 0.3s;
@@ -30,4 +32,12 @@ h2 {
 .solve-button:hover {
   background-color: #00a57e;
   color: var(--main-heading);
+}
+#potd-lower-half{
+  display: inline;
+}
+#button-div{
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
