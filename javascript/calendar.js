@@ -1,7 +1,7 @@
 import { getFromDB, addToDB } from './firebase/db.js';
 let fetchedData= [];
 
-function formCalendar(examDates,obj){ //obj is required to handle importing the calendar 
+function formCalendar(examDates,obj,exam = false){ //obj is required to handle importing the calendar 
     
     // find the calendar div
 

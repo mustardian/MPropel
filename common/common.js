@@ -1,6 +1,5 @@
 /* Konichiwa! This has all js this is common to all pages!*/
 
-
 //----------------------{Ripple effects}-------------------------
 
 /* OK, so basically the function triggers whenever a user CLICKS on ANY button element (1). Then, js will inject a dummy circle element inside the button based on the button and user cursor position which expands from nothing and does malpraktise! */
