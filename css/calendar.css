@@ -59,6 +59,7 @@
 }
 
 .tasks-surface {
+  padding-top: 2vh;
   background-color: #23242e;
   grid-row-start: 4;
   grid-row-end: 5;
@@ -115,7 +116,8 @@
   box-shadow: 1px 3px 4px black;
 }
 .day-hover:active{
-  padding-top: 1vh;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
   font-size: small;
   background-color: #242429;
   color: white;
@@ -138,7 +140,6 @@
 }
 .today:hover{
   border: transparent 2px solid;
-  border-radius: 8px;
 }
 
 .event-day-underline::after{
@@ -150,4 +151,10 @@
   border-radius: 8px;
   margin-top: -1vh;
   margin-left: 0.4vw;
+  transition: all 0.1s ease-in-out;
+}
+.day-hover:active > .event-day-underline::after{
+  height: 4px;
+  width: 0.8vw;
+  margin-left: 0.75vw;
 }
